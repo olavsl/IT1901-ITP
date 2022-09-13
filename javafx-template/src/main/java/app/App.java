@@ -17,6 +17,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("App.fxml"));
         Parent parent = fxmlLoader.load();
+        stage.setTitle("Personlig Økonomi");
         stage.setScene(new Scene(parent));
         stage.show();
     }
