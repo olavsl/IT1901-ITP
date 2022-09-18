@@ -1,12 +1,13 @@
 package app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
     
     private String username;
     private String password;
-    private List<Bilag> bilags;
+    private List<Bilag> bilags = new ArrayList<>();
 
 
     public User(String username, String password, String confirmedPassword) {
@@ -20,6 +21,10 @@ public class User {
 
     public List<Bilag> getBilags() {
         return this.bilags;
+    }
+
+    public void addBilag(Bilag bilag) {
+        bilags.add(bilag);
     }
 
     private void setUsername(String username) {
