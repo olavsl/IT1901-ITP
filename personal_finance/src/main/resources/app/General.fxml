@@ -19,7 +19,9 @@
          <font>
             <Font size="20.0" />
          </font></Label>
+
       <TextField fx:id="transactionTitle" layoutX="172.0" layoutY="269.0" />
+      <TextField fx:id="bilagTitle" layoutX="172.0" layoutY="269.0" />
       <Button layoutX="172.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
       <Button layoutX="361.0" layoutY="198.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
       <DatePicker fx:id="transactionDate" layoutX="172.0" layoutY="351.0" />
