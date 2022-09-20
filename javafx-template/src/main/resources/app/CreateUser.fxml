@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AppController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.CreateUserController">
    <children>
       <Label layoutX="100.0" layoutY="113.0" text="PERSONLIG ØKONOMI">
          <font>
@@ -19,7 +19,8 @@
       <TextField fx:id="password" layoutX="177.0" layoutY="395.0" />
       <Label layoutX="202.0" layoutY="427.0" text="Confirm password" />
       <TextField fx:id="confirmedPassword" layoutX="179.0" layoutY="450.0" />
-      <Button onAction="#createUser" layoutX="194.0" layoutY="524.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Create User" />
+      <Button layoutX="194.0" layoutY="524.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="120.0" text="Create User" />
       <Label fx:id="createUserFeedback" alignment="CENTER" layoutX="178.0" layoutY="586.0" prefHeight="45.0" prefWidth="150.0" textAlignment="CENTER" />
+      <Button layoutX="193.0" layoutY="651.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log in" />
    </children>
 </AnchorPane>
