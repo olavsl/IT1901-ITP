@@ -1,6 +1,6 @@
 package app;
 
-public class ModelTest {
+public class UserTest {
 
     
     

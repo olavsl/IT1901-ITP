@@ -7,7 +7,7 @@ public class User {
     
     private String username;
     private String password;
-    private List<Bilag> bilags = new ArrayList<>();
+    private List<Transaction> transactions = new ArrayList<>();
 
 
     public User(String username, String password, String confirmedPassword) {
@@ -19,12 +19,12 @@ public class User {
         return this.username;
     }
 
-    public List<Bilag> getBilags() {
-        return this.bilags;
+    public List<Transaction> getTransactions() {
+        return this.transactions;
     }
 
-    public void addBilag(Bilag bilag) {
-        bilags.add(bilag);
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
     }
 
     private void setUsername(String username) {
