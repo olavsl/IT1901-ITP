@@ -35,13 +35,13 @@ public class GeneralController {
         LocalDate date = bilagDate.getValue();
         String title = bilagTitle.getText();
         double value = Double.valueOf(bilagAmount.getText());
-        Bilag bilag;
+        Transaction bilag;
 
         if (date==null) {
-            bilag = new Bilag(title, value);
+            bilag = new Transaction(title, value);
         }
         else {
-            bilag = new Bilag(title, value, date);
+            bilag = new Transaction(title, value, date);
         }
         user.addBilag(bilag);
         System.out.println(bilag.getTitle());
