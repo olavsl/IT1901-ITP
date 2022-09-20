@@ -16,13 +16,13 @@ import javafx.scene.Node;
 public class GeneralController {
 
     @FXML
-    private TextField bilagAmount;
+    private TextField transactionAmount;
 
     @FXML
-    private DatePicker bilagDate;
+    private DatePicker transactionDate;
 
     @FXML
-    private TextField bilagTitle;
+    private TextField transactionTitle;
 
     private User user;
 
@@ -31,20 +31,20 @@ public class GeneralController {
     private Parent root;
     
     @FXML
-    void handleAddBilag(ActionEvent event) {
-        LocalDate date = bilagDate.getValue();
-        String title = bilagTitle.getText();
-        double value = Double.valueOf(bilagAmount.getText());
-        Transaction bilag;
+    void handleAddTransaction(ActionEvent event) {
+        LocalDate date = transactionDate.getValue();
+        String title = transactionTitle.getText();
+        double value = Double.valueOf(transactionAmount.getText());
+        Transaction transaction;
 
         if (date==null) {
-            bilag = new Transaction(title, value);
+            transaction = new Transaction(title, value);
         }
         else {
-            bilag = new Transaction(title, value, date);
+            transaction = new Transaction(title, value, date);
         }
-        user.addBilag(bilag);
-        System.out.println(bilag.getTitle());
+        user.addTransaction(transaction);
+        System.out.println(transaction.getTitle());
     }
 
     

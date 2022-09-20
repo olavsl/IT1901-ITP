@@ -20,7 +20,7 @@
             <Font size="20.0" />
          </font></Label>
       <TextField fx:id="bilagTitle" layoutX="172.0" layoutY="269.0" />
-      <Button layoutX="172.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAddBilag" prefHeight="25.0" prefWidth="120.0" text="Save" />
+      <Button layoutX="172.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
       <Button layoutX="361.0" layoutY="198.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
       <DatePicker fx:id="bilagDate" layoutX="172.0" layoutY="351.0" />
       <Label layoutX="129.0" layoutY="272.0" text="Tittel">
@@ -33,7 +33,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="bilagAmount" layoutX="172.0" layoutY="312.0" />
+      <TextField fx:id="transactionAmount" layoutX="172.0" layoutY="312.0" />
       <Label layoutX="108.0" layoutY="315.0" text="Mengde">
          <font>
             <Font size="14.0" />
