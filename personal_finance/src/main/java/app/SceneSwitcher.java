@@ -31,9 +31,12 @@ public class SceneSwitcher {
     }
 
     @FXML
-    public void switchToLogIn(ActionEvent event) throws IOException{
-        parent = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
-        switchScene(event, stage, scene, parent);
+    public void switchToLogIn(ActionEvent event, User user) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
+        Parent root = loader.load();
+        LogInController lc = loader.getController();
+        lc.setUser(user);
+        switchScene(event, stage, scene, root);
     }
 
     @FXML
@@ -42,6 +45,7 @@ public class SceneSwitcher {
         Parent root = loader.load();
         GeneralController gc = loader.getController();
         gc.setUser(user);
+        gc.updateTransactionOverview();
         switchScene(event, stage, scene, root);
     }
 

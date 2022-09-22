@@ -1,5 +1,8 @@
 package app;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,4 +26,7 @@ public class CreateUserController extends SceneSwitcher {
         createUserFeedback.setText("New user created! Login to access your profile :)");
     }
 
+    public void switchToLogIn(ActionEvent event) throws IOException {
+        switchToLogIn(event, this.user);
+    }
 }
