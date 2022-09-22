@@ -15,7 +15,7 @@ public class UserTest {
         assertThrows(IllegalArgumentException.class, () -> new User("abcd!", "password", "password"));
     
         assertEquals("allowedUsername", new User("allowedUsername", "password", "password").getUsername());
-        assertNotEquals("differentUsername", new User("allowedUsername", "password", "password").getUsername());
+        assertNotEquals("differentUsername", new User("NewAllowedUsername", "password", "password").getUsername());
     }
 
     @Test

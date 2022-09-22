@@ -1,2 +1,2 @@
-trygvenos
-trygno
+testbruker
+nytestbruker
