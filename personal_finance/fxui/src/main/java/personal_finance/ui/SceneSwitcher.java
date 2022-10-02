@@ -1,4 +1,4 @@
-package app;
+package personal_finance.ui;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import personal_finance.core.User;
 
 public class SceneSwitcher {
     
