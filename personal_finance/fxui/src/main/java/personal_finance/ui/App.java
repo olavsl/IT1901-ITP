@@ -1,4 +1,4 @@
-package app;
+package personal_finance.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package app;
+package personal_finance.core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class User {
         if(!checkIfUserExists(username)){
             this.username = username;
             try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/app/users.txt",true));
+                BufferedWriter bw = new BufferedWriter(new FileWriter("fxui/src/main/resources/personal_finance/ui/users.txt",true));
                 bw.newLine();
                 bw.write(username);
                 bw.close();
@@ -51,9 +51,8 @@ public class User {
         }else{
             throw new IllegalArgumentException("Username is already taken!");
         }
-        
-
     }
+
     private void setPassword(String password, String confirmedPassword) {
         if (!password.equals(confirmedPassword)) {
             throw new IllegalArgumentException("Passwords does not match!");
@@ -64,7 +63,7 @@ public class User {
 
     private boolean checkIfUserExists(String username) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/app/users.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("fxui/src/main/resources/personal_finance/ui/users.txt"));
             String s;
             List<String> users = new ArrayList<String>();
             while((s = br.readLine()) != null){

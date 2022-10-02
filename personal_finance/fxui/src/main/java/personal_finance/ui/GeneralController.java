@@ -1,4 +1,4 @@
-package app;
+package personal_finance.ui;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -12,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import personal_finance.core.Transaction;
+import personal_finance.core.User;
 
 public class GeneralController extends SceneSwitcher {
 

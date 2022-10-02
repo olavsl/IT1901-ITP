@@ -1,4 +1,4 @@
-package app;
+package personal_finance.core;
 
 import java.time.LocalDate;
 
