@@ -41,12 +41,12 @@ public class SceneSwitcher {
     }
 
     @FXML
-    public void switchToGeneral(ActionEvent event, User user) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("General.fxml"));
+    public void switchToOverview(ActionEvent event, User user) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Overview.fxml"));
         Parent root = loader.load();
-        GeneralController gc = loader.getController();
-        gc.setUser(user);
-        gc.updateTransactionOverview();
+        OverviewController oc = loader.getController();
+        oc.setUser(user);
+        oc.updateTransactionOverview();
         switchScene(event, stage, scene, root);
     }
 
