@@ -61,7 +61,7 @@ public class User {
         this.password = password;
     }
 
-    private boolean checkIfUserExists(String username) {
+    boolean checkIfUserExists(String username) {
         try {
             BufferedReader br = new BufferedReader(new FileReader("fxui/src/main/resources/personal_finance/ui/users.txt"));
             String s;

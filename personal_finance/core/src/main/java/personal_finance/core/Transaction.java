@@ -31,4 +31,18 @@ public class Transaction {
     public LocalDate getDate() {
         return date;
     }    
+
+
+    public void createUser() {
+        if (!password.getText().equals(confirmedPassword.getText())) {
+            createUserFeedback.setText("Passwords don't match!");
+        }
+        
+        this.user = new User(username.getText(), password.getText(), confirmedPassword.getText());
+        createUserFeedback.setText("New user created! Login to access your profile :)");
+    }
+
+    public void switchToLogIn(ActionEvent event) throws IOException {
+        switchToLogIn(event, this.user);
+    }
 }
