@@ -15,9 +15,9 @@ public class LogInController extends SceneSwitcher {
     @FXML private TextField password;
 
     @FXML
-    public void switchToGeneral(ActionEvent event) throws IOException {
+    public void switchToOverview(ActionEvent event) throws IOException {
         // switchToGeneral(event, this.user);
-        switchToGeneral(event, new User(username.getText(), password.getText(), password.getText())); // User object for testing functionality while persistence is not yet implemented
+        switchToOverview(event, new User(username.getText(), password.getText(), password.getText())); // User object for testing functionality while persistence is not yet implemented
     }
 
     public void setUser(User user) {
