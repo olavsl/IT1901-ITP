@@ -9,7 +9,6 @@ public class User {
     private String username;
     private String password;
     private List<Transaction> transactions = new ArrayList<>();
-    private Budget budget;
 
     public User(String username, String password, String confirmedPassword) {
         checkIfUserExists(username);
@@ -25,13 +24,6 @@ public class User {
         return this.transactions;
     }
     
-    public Budget getBudget() {
-        return budget;
-    }
-
-    public void setBudget(Budget budget) {
-        this.budget = budget;
-    }
 
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
