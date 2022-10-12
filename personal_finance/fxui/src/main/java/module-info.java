@@ -1,4 +1,6 @@
 module personal_finance.ui {
+    requires transitive com.fasterxml.jackson.databind;
+
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.base;
