@@ -25,7 +25,7 @@ public class OverviewController extends SceneSwitcher {
     ObservableList<Transaction> transactions = FXCollections.observableArrayList();
 
     private User user;
-    
+
     @FXML
     public void updateTransactionOverview() {
         if (transactions.isEmpty()) {
@@ -47,6 +47,10 @@ public class OverviewController extends SceneSwitcher {
     @FXML
     public void switchToOverview(ActionEvent event) throws IOException {
         switchToOverview(event, this.user);
+    }
+
+    public void updateOverview() {
+        usernameDisplay.setText(this.user.getUsername());
     }
 
     public void setUser(User user) {

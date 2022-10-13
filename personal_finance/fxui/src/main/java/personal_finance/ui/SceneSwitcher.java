@@ -43,6 +43,7 @@ public class SceneSwitcher {
         Parent root = loader.load();
         OverviewController oc = loader.getController();
         oc.setUser(user);
+        oc.updateOverview();
         oc.updateTransactionOverview();
         switchScene(event, stage, scene, root);
     }
