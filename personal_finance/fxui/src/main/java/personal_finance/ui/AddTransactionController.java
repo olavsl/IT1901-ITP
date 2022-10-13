@@ -51,6 +51,6 @@ public class AddTransactionController extends SceneSwitcher {
     }
 
     public void switchToLogIn(ActionEvent event) throws IOException {
-        switchToLogIn(event, this.user);
+        switchToLogIn(event);
     }
 }

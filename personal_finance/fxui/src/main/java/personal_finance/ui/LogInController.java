@@ -1,26 +1,32 @@
 package personal_finance.ui;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import personal_finance.core.User;
+import personal_finance.util.LogInAuthenticator;
 
 public class LogInController extends SceneSwitcher {
-
-    private User user;
     
     @FXML private TextField username;
     @FXML private TextField password;
+    @FXML private Label wrongLogInFeedback;
 
     @FXML
-    public void switchToOverview(ActionEvent event) throws IOException {
-        // switchToGeneral(event, this.user);
-        switchToOverview(event, new User(username.getText(), password.getText(), password.getText())); // User object for testing functionality while persistence is not yet implemented
-    }
+    public void logIn(ActionEvent event) throws IOException, NoSuchAlgorithmException {
+        String username = this.username.getText();
+        String password = this.password.getText();
+        
+        User user = LogInAuthenticator.logIn(username, password);
 
-    public void setUser(User user) {
-        this.user = user;
+        if (user.equals(null)) {
+            wrongLogInFeedback.setText("Username and password are not matching!");
+        }
+        
+        switchToOverview(event, user);
     }
 }

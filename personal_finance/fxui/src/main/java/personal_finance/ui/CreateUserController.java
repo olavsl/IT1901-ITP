@@ -1,19 +1,14 @@
 package personal_finance.ui;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import personal_finance.core.User;
-import personal_finance.core.PersonalFinanceModel;
-import personal_finance.json.PersonalFinancePersistence;
+import personal_finance.util.UserCreater;
 
 public class CreateUserController extends SceneSwitcher {
-
-    private User user;
-    private PersonalFinancePersistence pfp = new PersonalFinancePersistence();
 
     @FXML private TextField username;
     @FXML private TextField password;
@@ -21,20 +16,26 @@ public class CreateUserController extends SceneSwitcher {
     @FXML private Label createUserFeedback;
 
     @FXML
-    public void createUser() throws IOException {
-        if (!password.getText().equals(confirmedPassword.getText())) {
-            createUserFeedback.setText("Passwords don't match!");
-        }
-        
-        this.user = new User(username.getText(), password.getText(), confirmedPassword.getText());
+    public void createUser() throws IOException, NoSuchAlgorithmException {
+        String username = this.username.getText();
+        String password = this.password.getText();
+        String confirmedPassword = this.confirmedPassword.getText();
 
-        pfp.setStorageFilePath("");
-        pfp.savePersonalFinanceModel(new PersonalFinanceModel(this.user));
+        String validity = UserCreater.validateNewUserCredentials(username, password, confirmedPassword);
+
+        if (validity.equals("usernameTaken")) {
+            createUserFeedback.setText("Username is already taken!");
+            throw new IllegalArgumentException("Username is already taken!");
+        }
+
+        if (validity.equals("differentPasswords")) {
+            createUserFeedback.setText("Passwords don't match!");
+            throw new IllegalArgumentException("Passwords don't match!");
+        }
+
+        UserCreater.createUser(username, password);
 
         createUserFeedback.setText("New user created! Login to access your profile :)");
     }
 
-    public void switchToLogIn(ActionEvent event) throws IOException {
-        switchToLogIn(event, this.user);
-    }
 }

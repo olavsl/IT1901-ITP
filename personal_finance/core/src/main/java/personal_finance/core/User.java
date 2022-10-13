@@ -11,9 +11,9 @@ public class User {
 
     public User() {}
 
-    public User(String username, String password, String confirmedPassword) {
+    public User(String username, String password) {
         setUsername(username);
-        setPassword(password, confirmedPassword);; // For later: Hash passord for more security
+        setPassword(password);; // For later: Hash passord for more security
     }
 
     public String getUsername() {
@@ -27,7 +27,6 @@ public class User {
     public List<Transaction> getTransactions() {
         return this.transactions;
     }
-    
 
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
@@ -46,14 +45,6 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private void setPassword(String password, String confirmedPassword) {
-        if (!password.equals(confirmedPassword)) {
-            throw new IllegalArgumentException("Passwords does not match!");
-        }
-
         this.password = password;
     }
 

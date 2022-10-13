@@ -1,17 +1,14 @@
 package personal_finance.ui;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
@@ -28,7 +25,7 @@ public class OverviewController extends SceneSwitcher {
     ObservableList<Transaction> transactions = FXCollections.observableArrayList();
 
     private User user;
-    
+
     @FXML
     public void updateTransactionOverview() {
         if (transactions.isEmpty()) {
@@ -47,11 +44,17 @@ public class OverviewController extends SceneSwitcher {
         // transactionOverview.getItems().add(transaction.getTitle());
     }
 
+    @FXML
+    public void switchToOverview(ActionEvent event) throws IOException {
+        switchToOverview(event, this.user);
+    }
+
+    public void updateOverview() {
+        usernameDisplay.setText(this.user.getUsername());
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
 
-    public void switchToLogIn(ActionEvent event) throws IOException {
-        switchToLogIn(event, this.user);
-    }
 }
