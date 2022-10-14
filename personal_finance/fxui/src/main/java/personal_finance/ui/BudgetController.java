@@ -28,7 +28,7 @@ public class BudgetController extends SceneSwitcher {
 
     @FXML
     public void switchToLogIn(ActionEvent event) throws IOException {
-        switchToLogIn(event, this.user);
+        switchToLogIn(event);
     }
 
     @FXML

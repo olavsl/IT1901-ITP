@@ -44,11 +44,6 @@ public class OverviewController extends SceneSwitcher {
         // transactionOverview.getItems().add(transaction.getTitle());
     }
 
-    @FXML
-    public void switchToOverview(ActionEvent event) throws IOException {
-        switchToOverview(event, this.user);
-    }
-
     public void updateOverview() {
         usernameDisplay.setText(this.user.getUsername());
     }
@@ -59,7 +54,7 @@ public class OverviewController extends SceneSwitcher {
 
     @FXML
     public void switchToLogIn(ActionEvent event) throws IOException {
-        switchToLogIn(event, this.user);
+        switchToLogIn(event);
     }
 
     @FXML
