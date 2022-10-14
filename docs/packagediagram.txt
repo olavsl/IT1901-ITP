@@ -1,0 +1,21 @@
+@startuml
+package personal_finanse{
+component fxui{
+package personal_finanse.ui{
+}
+}
+component core{
+package personal_finanse.core{
+}
+}
+component collections
+component fxml
+component javafx
+component jackson
+fxui-->javafx
+fxui-->fxml
+core-->collections
+fxui->collections
+fxui-->core
+core->jackson
+@enduml
