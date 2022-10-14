@@ -20,7 +20,7 @@
       <Label layoutX="202.0" layoutY="427.0" text="Confirm password" />
       <TextField fx:id="confirmedPassword" layoutX="179.0" layoutY="450.0" />
       <Button layoutX="194.0" layoutY="524.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="120.0" text="Create User" />
-      <Label fx:id="createUserFeedback" alignment="CENTER" layoutX="178.0" layoutY="586.0" prefHeight="45.0" prefWidth="150.0" textAlignment="CENTER" />
+      <Label fx:id="createUserFeedback" alignment="CENTER" layoutX="64.0" layoutY="583.0" prefHeight="45.0" prefWidth="381.0" textAlignment="CENTER" />
       <Button layoutX="193.0" layoutY="651.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log in" />
    </children>
 </AnchorPane>

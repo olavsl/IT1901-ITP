@@ -44,7 +44,7 @@ public class OverviewController extends SceneSwitcher {
         // transactionOverview.getItems().add(transaction.getTitle());
     }
 
-    public void updateOverview() {
+    public void updateDisplayname() {
         usernameDisplay.setText(this.user.getUsername());
     }
 

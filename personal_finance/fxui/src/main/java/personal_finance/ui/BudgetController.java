@@ -40,4 +40,8 @@ public class BudgetController extends SceneSwitcher {
     public void switchToBudget(ActionEvent event) throws IOException {
         switchToBudget(event, this.user);
     }
+
+    public void updateDisplayname() {
+        usernameDisplay.setText(this.user.getUsername());
+    }
 }

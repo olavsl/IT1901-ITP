@@ -49,7 +49,7 @@
       </Label>
       <DatePicker fx:id="transactionDate" layoutX="149.0" layoutY="350.0" />
       <Button layoutX="149.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
-      <Label fx:id="userFeedback" layoutX="234.0" layoutY="533.0">
+      <Label fx:id="userFeedback" layoutX="124.0" layoutY="534.0" prefHeight="29.0" prefWidth="253.0">
          <font>
             <Font size="20.0" />
          </font>
