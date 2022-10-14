@@ -57,4 +57,23 @@ public class OverviewController extends SceneSwitcher {
         this.user = user;
     }
 
+    @FXML
+    public void switchToLogIn(ActionEvent event) throws IOException {
+        switchToLogIn(event, this.user);
+    }
+
+    @FXML
+    public void switchToAddTransaction(ActionEvent event) throws IOException {
+        switchToAddTransaction(event, this.user);
+    }
+
+    @FXML
+    public void switchToOverview(ActionEvent event) throws IOException {
+        switchToOverview(event, this.user);
+    }
+
+    @FXML
+    public void switchToBudget(ActionEvent event) throws IOException {
+        switchToBudget(event, this.user);
+    }
 }

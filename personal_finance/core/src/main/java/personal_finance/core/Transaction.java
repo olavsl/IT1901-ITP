@@ -7,7 +7,6 @@ public class Transaction {
     private String title;
     private double value;
     private LocalDate date;
-    // kan legge til kategori ved seinere implementasjon
 
     public Transaction() {}
 

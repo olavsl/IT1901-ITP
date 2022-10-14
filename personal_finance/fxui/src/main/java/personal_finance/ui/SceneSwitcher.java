@@ -48,4 +48,21 @@ public class SceneSwitcher {
         switchScene(event, stage, scene, root);
     }
 
+    @FXML
+    public void switchToAddTransaction(ActionEvent event, User user) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTransaction.fxml"));
+        Parent root = loader.load();
+        AddTransactionController ac = loader.getController();
+        ac.setUser(user);
+        switchScene(event, stage, scene, root);
+    }
+
+    @FXML
+    public void switchToBudget(ActionEvent event, User user) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Budget.fxml"));
+        Parent root = loader.load();
+        BudgetController bc = loader.getController();
+        bc.setUser(user);
+        switchScene(event, stage, scene, root);
+    }
 }
