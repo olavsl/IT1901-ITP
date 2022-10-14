@@ -29,9 +29,9 @@
       </TableView>
       <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <Button mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
-            <!-- <Button mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
-            <Button mnemonicParsing="false" onAction="#switchToBudget" text="Budget" /> --> <!-- TODO: add these functionalities -->
+          <Button mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
+            <Button mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
+            <Button mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
             <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
         </buttons>
       </ButtonBar>
