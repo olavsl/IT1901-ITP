@@ -13,9 +13,9 @@ public class UserCreater {
     
     private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
 
-    public static String validateNewUserCredentials(String username, String password, String confirmedPassword) throws IOException {
+    public static String validateNewUserCredentials(String username, String password, String confirmedPassword, String database) throws IOException {
         PersonalFinanceModel model;
-        pfp.setStorageFile("users.json");
+        pfp.setStorageFile(database);
 
         try {
             model = pfp.loadPersonalFinanceModel();
@@ -37,10 +37,10 @@ public class UserCreater {
         return "valid";
     }
 
-    public static void createUser(String username, String password) throws IOException, NoSuchAlgorithmException {
+    public static void createUser(String username, String password, String database) throws IOException, NoSuchAlgorithmException {
         User user;
         PersonalFinanceModel model;
-        pfp.setStorageFile("users.json");
+        pfp.setStorageFile(database);
 
         try {
             model = pfp.loadPersonalFinanceModel();
@@ -52,6 +52,22 @@ public class UserCreater {
         user = new User(username, PasswordHasher.hash(password));
 
         model.addUser(user);
+
+        pfp.savePersonalFinanceModel(model);
+    }
+
+    public static void deleteUser(String username, String database) throws IOException {
+        PersonalFinanceModel model;
+        pfp.setStorageFile(database);
+
+        try {
+            model = pfp.loadPersonalFinanceModel();
+        } catch (Exception e) {
+            List<User> emptyList = new ArrayList<>();
+            model = new PersonalFinanceModel(emptyList);
+        }
+
+        model.deleteUser(username);
 
         pfp.savePersonalFinanceModel(model);
     }
