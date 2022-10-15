@@ -1,5 +1,6 @@
 package personal_finance.core;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,4 +49,23 @@ public class User {
         this.password = password;
     }
 
+    public double calcTotalMonth() {
+        double sum = 0;
+        LocalDate startDate= LocalDate.now().withDayOfMonth(1);
+        LocalDate endDate= startDate.plusMonths(1);
+        for (Transaction transaction : transactions) {
+            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
+                sum+=transaction.getValue();
+            }
+        }
+        return sum;
+    }
+
+    public double calcTotalLife() {
+        double sum = 0;
+        for (Transaction transaction : transactions) {
+            sum+=transaction.getValue();
+        }
+        return sum;
+    }
 }

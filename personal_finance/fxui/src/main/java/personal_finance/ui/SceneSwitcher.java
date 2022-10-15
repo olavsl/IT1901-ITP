@@ -45,6 +45,7 @@ public class SceneSwitcher {
         oc.setUser(user);
         oc.updateDisplayname();
         oc.updateTransactionOverview();
+        oc.updateTotals();
         switchScene(event, stage, scene, root);
     }
 

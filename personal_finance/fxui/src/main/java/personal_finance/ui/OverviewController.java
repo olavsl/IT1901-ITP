@@ -48,6 +48,11 @@ public class OverviewController extends SceneSwitcher {
         usernameDisplay.setText(this.user.getUsername());
     }
 
+    public void updateTotals() {
+        totLife.setText(String.valueOf(this.user.calcTotalLife()));
+        totMonth.setText(String.valueOf(this.user.calcTotalMonth()));
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
