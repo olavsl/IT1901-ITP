@@ -44,10 +44,8 @@ public class Budget {
     * @return true when all categories are within limit, false otherewise
     */
     public boolean budgetCompliance() {
-        LocalDate startDate= LocalDate.now();
-        startDate.withDayOfMonth(this.startDate.getDayOfMonth());
         for (Category category : categories) {
-            if (!category.getLimitCompliance(startDate)) {
+            if (!category.getLimitCompliance(this.startDate)) {
                 return false;
             }
         }

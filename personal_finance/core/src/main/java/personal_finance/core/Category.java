@@ -36,8 +36,10 @@ public class Category {
 
     private double calcTotalMonth(LocalDate startDate) {
         double sum = 0;
+        startDate= LocalDate.now().withDayOfMonth(startDate.getDayOfMonth());
+        LocalDate endDate = startDate.plusMonths(1);
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().isAfter(startDate)) {
+            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
                 sum+=transaction.getValue();
             }
         }
