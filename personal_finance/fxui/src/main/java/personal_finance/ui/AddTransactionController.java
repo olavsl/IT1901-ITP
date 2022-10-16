@@ -37,7 +37,6 @@ public class AddTransactionController extends SceneSwitcher {
             userFeedback.setText("Title can not be empty, try again");
             return;
         }
-        Transaction transaction;
 
         TransactionHandler.handleAddTransaction(title, value, date, this.user, "users.json");
 
