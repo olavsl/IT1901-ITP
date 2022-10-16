@@ -18,6 +18,7 @@ public class PersonalFinanceModel {
         for (User user : this.users) {
             if (username.equals(user.getUsername())) {
                 this.users.remove(user);
+                break;
             }
         }
     }
