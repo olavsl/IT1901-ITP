@@ -51,11 +51,21 @@ public class PersonalFinancePersistence {
         mapper.writerWithDefaultPrettyPrinter().writeValue(writer, personalFinanceModel);
     }
 
+    /**
+     * @return PersonalFinanceModel - which carries the information of users in the database.
+     * @throws IOException
+     */
     public PersonalFinanceModel loadPersonalFinanceModel() throws IOException {
         Reader reader = new FileReader(getStorageFile(), StandardCharsets.UTF_8);
         return readPersonalFinanceModel(reader);
     }
 
+    /**
+     * Writes the User objects of the parsed PersonalFinanceModel to the database.
+     * 
+     * @param personalFinanceModel
+     * @throws IOException
+     */
     public void savePersonalFinanceModel(PersonalFinanceModel personalFinanceModel) throws IOException {
         Writer writer = new FileWriter(getStorageFile(), StandardCharsets.UTF_8);
         writePersonalFinanceModel(personalFinanceModel, writer);

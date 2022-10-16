@@ -12,6 +12,17 @@ public class TransactionHandler {
     
     private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
 
+    /**
+     * Creates a transaction instance, which is stored in the database under current user. 
+     * Also, it updates the user object of the instance who called this method.
+     * 
+     * @param title
+     * @param value
+     * @param date
+     * @param user
+     * @param database
+     * @throws IOException
+     */
     public static void handleAddTransaction(String title, double value, LocalDate date, User user, String database) throws IOException {
         Transaction transaction;
 

@@ -11,6 +11,14 @@ public class LogInAuthenticator {
     
     private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
 
+    /**
+     * @param username
+     * @param password
+     * @param database
+     * @return User object with matching username, if there exits one. Otherwise, null.
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     */
     public static User logIn(String username, String password, String database) throws IOException, NoSuchAlgorithmException {
         pfp.setStorageFile(database);
         PersonalFinanceModel model = pfp.loadPersonalFinanceModel();
