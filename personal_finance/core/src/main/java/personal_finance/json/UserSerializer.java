@@ -20,7 +20,7 @@ public class UserSerializer extends JsonSerializer<User> {
         generator.writeStartObject();
         generator.writeStringField("username", user.getUsername());
         generator.writeStringField("password", user.getPassword());
-        if (user.getTransactions().size() >= 0) {
+        if (user.getTransactions().size() > 0) {
             generator.writeArrayFieldStart("transactions");
             for (Transaction transaction : user.getTransactions()) {
                 generator.writeObject(transaction);

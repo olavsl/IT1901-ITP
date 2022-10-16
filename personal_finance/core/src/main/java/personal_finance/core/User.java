@@ -26,7 +26,8 @@ public class User {
     }
 
     public List<Transaction> getTransactions() {
-        return this.transactions;
+        List<Transaction> transactionsCopy = List.copyOf(this.transactions);
+        return transactionsCopy;
     }
 
     public void addTransaction(Transaction transaction) {

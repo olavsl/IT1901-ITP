@@ -14,7 +14,7 @@ public class PersonalFinanceModelSerializer extends JsonSerializer<PersonalFinan
     @Override
     public void serialize(PersonalFinanceModel model, JsonGenerator generator, SerializerProvider provider) throws IOException {
         generator.writeStartObject();
-        if (model.getUsers().size() >= 0) {
+        if (model.getUsers().size() > 0) {
             generator.writeArrayFieldStart("users");
             for (User user : model.getUsers()) {
                 generator.writeObject(user);
