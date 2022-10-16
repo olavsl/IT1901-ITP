@@ -7,7 +7,7 @@ public class PersonalFinanceModel {
     private List<User> users;
 
     public PersonalFinanceModel (List<User> users) {
-             this.users = List.copyOf(users);
+        this.users = users;
     }
 
     public void addUser(User user) {
@@ -24,8 +24,7 @@ public class PersonalFinanceModel {
     }
 
     public List<User> getUsers() {
-        List<User> usersCopy = List.copyOf(this.users);
-        return usersCopy;
+        return this.users;
     }
 
 }
