@@ -3,18 +3,13 @@ package personal_finance.ui;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import personal_finance.core.Transaction;
 import personal_finance.core.User;
+import personal_finance.util.TransactionHandler;
 
 public class AddTransactionController extends SceneSwitcher {
 
@@ -24,25 +19,17 @@ public class AddTransactionController extends SceneSwitcher {
     @FXML private Label userFeedback;
     @FXML private Label usernameDisplay;
 
-
     private User user;
     
     @FXML
-    void handleAddTransaction(ActionEvent event) {
+    void handleAddTransaction(ActionEvent event) throws IOException {
         LocalDate date = transactionDate.getValue();
         String title = transactionTitle.getText();
         double value = Double.valueOf(transactionAmount.getText());
-        Transaction transaction;
 
-        if (date==null) {
-            transaction = new Transaction(title, value);
-        }
-        else {
-            transaction = new Transaction(title, value, date);
-        }
-        user.addTransaction(transaction);
-        userFeedback.setText("Transaction added succesfully");
+        TransactionHandler.handleAddTransaction(title, value, date, this.user, "users.json");
 
+        userFeedback.setText("Transaction added successfully");
     }
 
 

@@ -21,7 +21,7 @@ public class LogInController extends SceneSwitcher {
         String username = this.username.getText();
         String password = this.password.getText();
         
-        User user = LogInAuthenticator.logIn(username, password);
+        User user = LogInAuthenticator.logIn(username, password, "users.json");
 
         if (user.equals(null)) {
             wrongLogInFeedback.setText("Username and password are not matching!");

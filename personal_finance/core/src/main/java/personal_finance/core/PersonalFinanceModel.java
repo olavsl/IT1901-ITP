@@ -14,6 +14,15 @@ public class PersonalFinanceModel {
         this.users.add(user);
     }
 
+    public void deleteUser(String username) {
+        for (User user : this.users) {
+            if (username.equals(user.getUsername())) {
+                this.users.remove(user);
+                break;
+            }
+        }
+    }
+
     public List<User> getUsers() {
         return this.users;
     }

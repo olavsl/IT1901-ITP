@@ -21,7 +21,7 @@ public class CreateUserController extends SceneSwitcher {
         String password = this.password.getText();
         String confirmedPassword = this.confirmedPassword.getText();
 
-        String validity = UserCreater.validateNewUserCredentials(username, password, confirmedPassword);
+        String validity = UserCreater.validateNewUserCredentials(username, password, confirmedPassword, "users.json");
 
         if (validity.equals("usernameTaken")) {
             createUserFeedback.setText("Username is already taken!");
@@ -33,7 +33,7 @@ public class CreateUserController extends SceneSwitcher {
             throw new IllegalArgumentException("Passwords don't match!");
         }
 
-        UserCreater.createUser(username, password);
+        UserCreater.createUser(username, password, "users.json");
 
         createUserFeedback.setText("New user created! Login to access your profile :)");
     }
