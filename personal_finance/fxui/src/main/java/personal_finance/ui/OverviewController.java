@@ -26,7 +26,6 @@ public class OverviewController extends SceneSwitcher {
 
     private User user;
 
-    @FXML
     public void updateTransactionOverview() {
         if (transactions.isEmpty()) {
             transactions.addAll(user.getTransactions());
@@ -41,7 +40,6 @@ public class OverviewController extends SceneSwitcher {
         transactionDates.setCellValueFactory(new PropertyValueFactory<Transaction, String>("date"));
         
         transactionOverview.setItems(transactions);
-        // transactionOverview.getItems().add(transaction.getTitle());
     }
 
     public void updateDisplayname() {
