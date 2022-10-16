@@ -19,3 +19,5 @@ The goal with this project is to create an app which serves as a complete and or
  * After one week we had our first weekly meeting, where everyone presented their work so far and discussed challenges that had come up. At this meeting it was decided that the app would simply be called "Personal Finance". 
  * We figured out what needed to be done before the deadline, and distributed the remaining work.
  * Project was ready for Release 1 on 22.09.2022.
+
+ 
