@@ -1,6 +1,7 @@
 package personal_finance.json;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -19,7 +20,8 @@ public class TransactionSerializer extends JsonSerializer<Transaction> {
         generator.writeStartObject();
         generator.writeStringField("title", transaction.getTitle());
         generator.writePOJOField("value", transaction.getValue());
-        generator.writePOJOField("date", transaction.getDate());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        generator.writeStringField("date", formatter.format(transaction.getDate()));
         generator.writeEndObject();
     }
 
