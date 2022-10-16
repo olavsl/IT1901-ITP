@@ -15,8 +15,7 @@ public class Category {
     }
 
     public List<Transaction> getTransactions() {
-        List<Transaction> transactionsCopy = List.copyOf(this.transactions);
-        return transactionsCopy;
+        return transactions;
     }
 
     public String getTitle() {
