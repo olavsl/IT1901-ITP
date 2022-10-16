@@ -11,8 +11,8 @@ public class LogInAuthenticator {
     
     private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
 
-    public static User logIn(String username, String password) throws IOException, NoSuchAlgorithmException {
-        pfp.setStorageFile("users.json");
+    public static User logIn(String username, String password, String database) throws IOException, NoSuchAlgorithmException {
+        pfp.setStorageFile(database);
         PersonalFinanceModel model = pfp.loadPersonalFinanceModel();
 
         for (User user : model.getUsers()) {
