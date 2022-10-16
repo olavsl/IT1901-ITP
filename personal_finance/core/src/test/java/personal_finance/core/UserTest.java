@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-//import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserTest {
 
@@ -17,47 +18,40 @@ public class UserTest {
         assertThrows(IllegalArgumentException.class, () -> new User("abcdabcdabcdabcdabcda", "password"));
         assertThrows(IllegalArgumentException.class, () -> new User("abcd!", "password"));
     
-        // assertEquals("allowedUsername", new User("allowedUsername", "password", "password").getUsername());
-        // assertNotEquals("differentUsername", new User("NewAllowedUsername", "password", "password").getUsername());
+        assertEquals("allowedUsername", new User("allowedUsername", "password").getUsername());
+        assertNotEquals("differentUsername", new User("NewAllowedUsername", "password").getUsername());
     }
 
     @Test
     public void testGetUsername() {
-        User user = new User("abcd", "password", "password");
+        User user = new User("abcd", "password");
         assertEquals("abcd", user.getUsername());
     }
 
     @Test
     public void testSetPassword() {
-        assertThrows(IllegalArgumentException.class, () -> new User("abcd", "passwordA", "passwordB"));
+        assertEquals("password", new User("username", "password").getPassword());
     }
-
-
-    @Test
-    public void testGetTransactions() {
-        User user = new User("abcd", "password", "password");
-        Transaction transaction = new Transaction("Test", 100.0, LocalDate.now());
-        user.addTransaction(transaction);
-        assertEquals(transaction, user.getTransactions().get(0));
-    }
-
 
     @Test
     public void testAddTransaction() {
-        User user = new User("abcd", "password", "password");
+        User user = new User("abcd", "password");
         Transaction transaction = new Transaction("Test", 200.0, LocalDate.now());
         user.addTransaction(transaction);
         assertEquals(transaction, user.getTransactions().get(0));
     }
-    
 
     @Test
-    public void testCheckIfUserExists() {
-        User user = new User("abcd", "password", "password");
-        assertEquals(false, user.checkIfUserExists("abcd"));
-
-    } 
-
- 
+    public void testGetTransactions() {
+        User user = new User("abcd", "password");
+        List<Transaction> transactions = new ArrayList<>();
+        Transaction transaction1 = new Transaction("Test", 100.0, LocalDate.now());
+        Transaction transaction2 = new Transaction("Test", 200.0, LocalDate.now());
+        transactions.add(transaction1);
+        transactions.add(transaction2);
+        user.addTransaction(transaction1);
+        user.addTransaction(transaction2);
+        assertEquals(transactions, user.getTransactions());
+    }
     
 }
