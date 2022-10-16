@@ -25,7 +25,19 @@ public class AddTransactionController extends SceneSwitcher {
     void handleAddTransaction(ActionEvent event) throws IOException {
         LocalDate date = transactionDate.getValue();
         String title = transactionTitle.getText();
-        double value = Double.valueOf(transactionAmount.getText());
+        double value;
+        //checks for errors in input
+        try {
+            value = Double.valueOf(transactionAmount.getText());
+        } catch (Exception e) {
+            userFeedback.setText("Value field is only for numbers, try again");
+            return;
+        }
+        if (title.equals("")) {
+            userFeedback.setText("Title can not be empty, try again");
+            return;
+        }
+        Transaction transaction;
 
         TransactionHandler.handleAddTransaction(title, value, date, this.user, "users.json");
 
