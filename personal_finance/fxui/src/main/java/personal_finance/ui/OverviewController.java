@@ -51,6 +51,15 @@ public class OverviewController extends SceneSwitcher {
         totMonth.setText(String.valueOf(this.user.calcTotalMonth()));
     }
 
+    @FXML
+    public void switchToOverview(ActionEvent event) throws IOException {
+        switchToOverview(event, this.user);
+    }
+
+    public void updateOverview() {
+        usernameDisplay.setText(this.user.getUsername());
+    }
+
     public void setUser(User user) {
         this.user = user;
     }

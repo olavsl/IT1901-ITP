@@ -38,7 +38,6 @@ public class SceneSwitcher {
         switchScene(event, stage, scene, root);
     }
 
-    @FXML
     public void switchToOverview(ActionEvent event, User user) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Overview.fxml"));
         Parent root = loader.load();
