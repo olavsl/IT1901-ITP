@@ -31,7 +31,7 @@ public class PersonalFinancePersistence {
 
     public void setStorageFile(final String path) throws IOException {
         String dir = System.getProperty("user.dir");
-        String finalPath = dir.substring(0, dir.length() - 5) + "\\core\\src\\main\\resources\\personal_finance\\json\\" + path;
+        String finalPath = dir.substring(0, dir.length() - 5) + "/core/src/main/resources/personal_finance/json/" + path;
         this.storageFile = new File(finalPath);
     }
 
