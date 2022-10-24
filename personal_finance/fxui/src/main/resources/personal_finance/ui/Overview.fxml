@@ -32,7 +32,7 @@
           <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
             <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
             <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
-            <Button fx:id="LogOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
+            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
         </buttons>
       </ButtonBar>
       <Label layoutX="75.0" layoutY="495.0" text="Total this month:">

@@ -18,7 +18,7 @@
       <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
-            <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
             <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
             <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
         </buttons>
