@@ -36,7 +36,7 @@
             <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
         </buttons>
       </ButtonBar>
-      <Label layoutX="75.0" layoutY="495.0" text="Total this month:">
+      <Label layoutX="75.0" layoutY="510.0" text="Total this month:">
          <font>
             <Font size="20.0" />
          </font>
@@ -46,12 +46,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="totMonth" layoutX="252.0" layoutY="495.0" prefHeight="29.0" prefWidth="129.0">
+      <Label fx:id="totMonth" layoutX="282.0" layoutY="510.0" prefHeight="29.0" prefWidth="129.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="totLife" layoutX="251.0" layoutY="550.0" prefHeight="29.0" prefWidth="129.0">
+      <Label fx:id="totLife" layoutX="282.0" layoutY="550.0" prefHeight="29.0" prefWidth="129.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -59,5 +59,15 @@
       <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" />
       <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" />
       <ChoiceBox fx:id="btnFilterByCategory" layoutX="255.0" layoutY="225.0" prefWidth="150.0" />
+      <Label layoutX="75.0" layoutY="591.0" text="Budget complieance:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="budgetCompliance" layoutX="282.0" layoutY="591.0" prefHeight="29.0" prefWidth="129.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
