@@ -9,6 +9,8 @@ public class User {
     private String username;
     private String password;
     private List<Transaction> transactions = new ArrayList<>();
+    private Budget budget;
+
     public User() {}
 
     public User(String username, String password) {
@@ -59,6 +61,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Budget getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget = budget;
     }
 
     public double calcTotalMonth() {
