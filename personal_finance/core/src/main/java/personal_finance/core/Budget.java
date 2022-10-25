@@ -60,5 +60,17 @@ public class Budget {
     public double getCategoryLimitLeft(Category category, List<Transaction> transactions) {
         return category.getLimitLeft(startDate, transactions);
     }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
 }
 
