@@ -18,6 +18,9 @@ public class User {
         setPassword(password);; // For later: Hash passord for more security
     }
 
+    public User() {
+    }
+
     public String getUsername() {
         return this.username;
     }
@@ -64,7 +67,7 @@ public class User {
     }
 
     public Budget getBudget() {
-        return budget;
+        return this.budget;
     }
 
     public void setBudget(Budget budget) {
