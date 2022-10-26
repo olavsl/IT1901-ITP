@@ -20,10 +20,11 @@ public class OverviewController extends SceneSwitcher {
 
     @FXML private Label totLife;
     @FXML private Label totMonth;
+    @FXML private Label budgetCompliance;
     @FXML private TableView<Transaction> transactionOverview;
-    @FXML TableColumn<Transaction, String> transactionTitles;
-    @FXML TableColumn<Transaction, Double> transactionAmounts;
-    @FXML TableColumn<Transaction, String> transactionDates;
+    @FXML private TableColumn<Transaction, String> transactionTitles;
+    @FXML private TableColumn<Transaction, Double> transactionAmounts;
+    @FXML private TableColumn<Transaction, String> transactionDates;
     @FXML private Label usernameDisplay;
     @FXML private ChoiceBox<String> btnFilterByCategory;
     ObservableList<Transaction> transactions = FXCollections.observableArrayList();
@@ -80,6 +81,16 @@ public class OverviewController extends SceneSwitcher {
     public void updateTotals() {
         totLife.setText(String.valueOf(this.user.calcTotalLife()));
         totMonth.setText(String.valueOf(this.user.calcTotalMonth()));
+
+        if (user.getBudget()!=null && this.user.getBudget().budgetCompliance(user.getTransactions())) {
+            budgetCompliance.setText("All good");
+        }
+        else if (user.getBudget()!=null && !this.user.getBudget().budgetCompliance(user.getTransactions())) {
+            budgetCompliance.setText("Over limit in one or more categories");
+        }
+        else {
+            budgetCompliance.setText("Budget not yet set");
+        }
     }
 
     public void updateOverview() {
