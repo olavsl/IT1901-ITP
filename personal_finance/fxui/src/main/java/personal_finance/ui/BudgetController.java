@@ -75,8 +75,11 @@ public class BudgetController extends SceneSwitcher {
         //errorhandeling
         try {
             limit = Double.valueOf(categoryLimit.getText());
+            if (limit<0) {
+                throw new IllegalArgumentException("Limit value out of bounds, can only be positive");
+            }
         } catch (Exception e) {
-            userFeedback.setText("Limit field is only for numbers, try again");
+            userFeedback.setText("Limit field is only for positive numbers, try again");
             return;
         }
 
