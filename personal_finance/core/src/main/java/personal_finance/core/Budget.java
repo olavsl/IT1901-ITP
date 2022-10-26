@@ -9,7 +9,7 @@ public class Budget {
     private LocalDate startDate;
 
     public Budget(LocalDate startDate) {
-        this.startDate = startDate;
+        setStartDate(startDate);
     }
 
     public void addCategory(String title, double limit) {
@@ -70,6 +70,9 @@ public class Budget {
     }
 
     public void setStartDate(LocalDate startDate) {
+        if (startDate==null) {
+            startDate = LocalDate.now();
+        }
         this.startDate = startDate;
     }
 }
