@@ -8,6 +8,8 @@ public class Category {
     private String title;
     private double limit;
 
+    public Category() {}
+
     public Category(String title, double limit) {
         this.title = title;
         this.limit = limit;
@@ -28,13 +30,17 @@ public class Category {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public double getLimit() {
         return limit;
     }
     
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public void setLimit(double limit) {
         this.limit = limit;
     }

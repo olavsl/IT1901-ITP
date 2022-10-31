@@ -23,6 +23,13 @@ public class Transaction {
         this.date = date;
     }
 
+    public Transaction(String title, double value, LocalDate date, Category category) {
+        this.title = title;
+        this.value = value;
+        this.date = date;
+        this.category = category;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -54,6 +61,10 @@ public class Transaction {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Category getCategory() {
