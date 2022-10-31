@@ -65,6 +65,15 @@ public class Budget {
         return categories;
     }
 
+    public Category getCategoryFromString(String string){
+        for (Category category : categories) {
+            if (category.getTitle().equals(string)) {
+                return category;
+            }
+        }
+        return null;
+    }
+
     public LocalDate getStartDate() {
         return startDate;
     }

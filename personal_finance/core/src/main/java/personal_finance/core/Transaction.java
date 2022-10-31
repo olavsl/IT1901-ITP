@@ -11,16 +11,18 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(String title, double value) {
+    public Transaction(String title, double value, Category category) {
         this.title = title;
         this.value = value;
         this.date = LocalDate.now();
+        setCategory(category);
     }
 
-    public Transaction(String title, double value, LocalDate date) {
+    public Transaction(String title, double value, LocalDate date, Category category) {
         this.title = title;
         this.value = value;
         this.date = date;
+        setCategory(category);
     }
 
     public Transaction(String title, double value, LocalDate date, Category category) {
@@ -71,4 +73,12 @@ public class Transaction {
         return category;
     }
 
+    public void setCategory(Category category) {
+        if (category==null) {
+            this.category = new Category("$Other$", 0);
+        }
+        else {
+            this.category = category;
+        }
+    }
 }
