@@ -57,6 +57,7 @@ public class SceneSwitcher {
         ac.setUser(user);
         ac.setCategoryChoices();
         ac.updateDisplayname();
+        ac.updateChoicebox();
         switchScene(event, stage, scene, root);
     }
 

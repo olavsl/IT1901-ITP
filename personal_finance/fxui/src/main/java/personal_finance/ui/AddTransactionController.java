@@ -23,8 +23,6 @@ public class AddTransactionController extends SceneSwitcher {
     @FXML private ChoiceBox<String> btnChooseCategory;
     @FXML private Label userFeedback;
     @FXML private Label usernameDisplay;
-    @FXML private TextField newCategoryTitle = new TextField();
-    @FXML private TextField newCategoryLimit = new TextField();
 
     private User user;
     private Category chosenCategory = null;
