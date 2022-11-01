@@ -27,7 +27,7 @@ public class Budget {
         }
         return false;
     }
-        /**
+    /**
     * sums up limit for all categories in budget
     * @return the sum of all limits
     */
@@ -41,11 +41,12 @@ public class Budget {
 
     /**
     * checks if all the categories are within their limits
+    * @param transactions The list of all transactions from user
     * @return true when all categories are within limit, false otherewise
     */
-    public boolean budgetCompliance() {
+    public boolean budgetCompliance(List<Transaction> transactions) {
         for (Category category : categories) {
-            if (!category.getLimitCompliance(this.startDate)) {
+            if (!category.getLimitCompliance(this.startDate, transactions)) {
                 return false;
             }
         }
@@ -56,8 +57,8 @@ public class Budget {
         return category.getLimit();
     }
 
-    public double getCategoryLimitLeft(Category category) {
-        return category.getLimitLeft(startDate);
+    public double getCategoryLimitLeft(Category category, List<Transaction> transactions) {
+        return category.getLimitLeft(startDate, transactions);
     }
 }
 
