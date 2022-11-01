@@ -55,6 +55,8 @@ public class OverviewController extends SceneSwitcher {
             }
         }
 
+        btnFilterByCategory.getItems().add("All Transactions");
+
         btnFilterByCategory.setOnAction((event) -> {
             String selectedCategory = btnFilterByCategory.getSelectionModel().getSelectedItem();
             filterByCategory(selectedCategory);
@@ -64,9 +66,15 @@ public class OverviewController extends SceneSwitcher {
     public void filterByCategory(String categoryName) {
         this.transactions.clear();
 
-        for (Transaction t : user.getTransactions()) {
-            if (t.getCategory().getTitle().equals(categoryName)) {
+        if (categoryName.equals("All Transactions")) {
+            for (Transaction t : user.getTransactions()) {
                 this.transactions.add(t);
+            }
+        } else {
+            for (Transaction t : user.getTransactions()) {
+                if (t.getCategory().getTitle().equals(categoryName)) {
+                    this.transactions.add(t);
+                }
             }
         }
 
