@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="personal_finance.ui.AddTransactionController" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.ui.BudgetController" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.ui.LogInController" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.ui.OverviewController" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.ui.SceneSwitcher" />
+  </Match>
+</FindBugsFilter>

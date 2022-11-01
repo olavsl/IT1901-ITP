@@ -127,10 +127,8 @@
                     <xmlOutput>false</xmlOutput>
                     <htmlOutput>true</htmlOutput>
                     <excludeFilterFile>exclude.xml</excludeFilterFile>
-                    <excludeFilterFile>core/exclude.xml</excludeFilterFile>
-                    <excludeFilterFile>fxui/exclude.xml</excludeFilterFile>
                 </configuration>
-                <!-- <executions>
+                <executions>
                     <execution>
                     <id>spotbugs-check</id>
                     <phase>verify</phase>
@@ -138,7 +136,7 @@
                         <goal>check</goal>
                     </goals>
                     </execution>
-                </executions> -->
+                </executions>
             </plugin>
             <!-- Configure jacoco code coverage -->
             <plugin>

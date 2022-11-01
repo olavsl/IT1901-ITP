@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="personal_finance.core.Category" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.core.PersonalFinanceModel" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.PersonalFinancePersistence" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.core.User" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.PersonalFinanceModelSerializer" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.UserSerializer" />
+  </Match>
+</FindBugsFilter>
