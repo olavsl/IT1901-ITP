@@ -18,4 +18,10 @@
   <Match>
     <Class name="personal_finance.json.UserSerializer" />
   </Match>
+  <Match>
+    <Class name="personal_finance.core.Transaction" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.TransactionsSorter" />
+  </Match>
 </FindBugsFilter>
