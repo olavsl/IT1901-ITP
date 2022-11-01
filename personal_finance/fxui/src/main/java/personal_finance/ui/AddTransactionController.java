@@ -72,22 +72,27 @@ public class AddTransactionController extends SceneSwitcher {
         List<String> categories = new ArrayList<>();
 
         btnChooseCategory.getItems().add("Other");
-
-        for (int i = 0; i < user.getTransactions().size(); i++) {
-            String c = user.getTransactions().get(i).getCategory().getTitle();
-            if (!categories.contains(c)) {
-                categories.add(c);
-                btnChooseCategory.getItems().add(c);
+        try {
+            for (Category category : user.getBudget().getCategories()) {
+                if (!categories.contains(category.getTitle())) {
+                    categories.add(category.getTitle());
+                    btnChooseCategory.getItems().add(category.getTitle());
+                }
             }
+        } catch (Exception e) {
+
         }
 
         btnChooseCategory.setOnAction((event) -> {
             String selectedCategory = btnChooseCategory.getSelectionModel().getSelectedItem();
-        
-            for (Category category : this.user.getCategories()) {
-                if (category.getTitle().equals(selectedCategory)) {
-                    this.chosenCategory = category;
+            try {
+                for (Category category : this.user.getBudget().getCategories()) {
+                    if (category.getTitle().equals(selectedCategory)) {
+                        this.chosenCategory = category;
+                    }
                 }
+            } catch (Exception e) {
+        
             }
         });
     }

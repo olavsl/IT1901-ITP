@@ -45,6 +45,7 @@ public class Category {
         this.limit = limit;
     }
 
+    //fix bug where it doesnt check for the transactions that are on startdate or enddate
     private double calcTotalMonth(LocalDate startDate, List<Transaction> transactions) {
         double sum = 0;
         startDate= LocalDate.now().withDayOfMonth(startDate.getDayOfMonth());
