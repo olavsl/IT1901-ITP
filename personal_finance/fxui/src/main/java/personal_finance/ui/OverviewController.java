@@ -82,15 +82,15 @@ public class OverviewController extends SceneSwitcher {
         totLife.setText(String.valueOf(this.user.calcTotalLife()));
         totMonth.setText(String.valueOf(this.user.calcTotalMonth()));
 
-        if (user.getBudget()!=null && this.user.getBudget().budgetCompliance(user.getTransactions())) {
-            budgetCompliance.setText("All good");
-        }
-        else if (user.getBudget()!=null && !this.user.getBudget().budgetCompliance(user.getTransactions())) {
-            budgetCompliance.setText("Over limit in one or more categories");
-        }
-        else {
-            budgetCompliance.setText("Budget not yet set");
-        }
+        // if (user.getBudget()!=null && this.user.getBudget().budgetCompliance(user.getTransactions())) {
+        //     budgetCompliance.setText("All good");
+        // }
+        // else if (user.getBudget()!=null && !this.user.getBudget().budgetCompliance(user.getTransactions())) {
+        //     budgetCompliance.setText("Over limit in one or more categories");
+        // }
+        // else {
+        //     budgetCompliance.setText("Budget not yet set");
+        // }
     }
 
     public void updateOverview() {

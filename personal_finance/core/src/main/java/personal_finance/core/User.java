@@ -11,8 +11,6 @@ public class User {
     private List<Transaction> transactions = new ArrayList<>();
     private Budget budget;
 
-    public User() {}
-
     public User(String username, String password) {
         setUsername(username);
         setPassword(password);; // For later: Hash passord for more security

@@ -11,25 +11,16 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(String title, double value, Category category) {
+    public Transaction(String title, double value) {
         this.title = title;
         this.value = value;
         this.date = LocalDate.now();
-        setCategory(category);
     }
 
-    public Transaction(String title, double value, LocalDate date, Category category) {
+    public Transaction(String title, double value, LocalDate date) {
         this.title = title;
         this.value = value;
         this.date = date;
-        setCategory(category);
-    }
-
-    public Transaction(String title, double value, LocalDate date, Category category) {
-        this.title = title;
-        this.value = value;
-        this.date = date;
-        this.category = category;
     }
 
     public String getTitle() {
@@ -71,14 +62,5 @@ public class Transaction {
 
     public Category getCategory() {
         return category;
-    }
-
-    public void setCategory(Category category) {
-        if (category==null) {
-            this.category = new Category("$Other$", 0);
-        }
-        else {
-            this.category = category;
-        }
     }
 }
