@@ -34,7 +34,7 @@ public class TransactionHandler {
         }
 
         if (category == null) {
-            Category other = new Category("other", 0);
+            Category other = new Category("Other", 0);
             transaction.setCategory(other);
         } else {
             transaction.setCategory(category);

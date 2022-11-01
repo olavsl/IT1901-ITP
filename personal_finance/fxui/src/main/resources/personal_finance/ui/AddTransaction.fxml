@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.AddTransactionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.AddTransactionController">
    <children>
       <Label layoutX="107.0" layoutY="62.0" text="PERSONAL FINANCE">
          <font>
@@ -35,20 +36,26 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="transactionTitle" layoutX="149.0" layoutY="268.0" />
+      <TextField fx:id="transactionTitle" layoutX="150.0" layoutY="270.0" />
       <Label layoutX="85.0" layoutY="314.0" text="Amount">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="transactionAmount" layoutX="149.0" layoutY="311.0" />
+      <TextField fx:id="transactionAmount" layoutX="150.0" layoutY="310.0" />
       <Label layoutX="106.0" layoutY="353.0" text="Date">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="transactionDate" layoutX="149.0" layoutY="350.0" />
-      <Button layoutX="149.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
+      <DatePicker fx:id="transactionDate" layoutX="150.0" layoutY="350.0" />
+      <Button layoutX="184.0" layoutY="447.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
       <Label fx:id="userFeedback" layoutX="124.0" layoutY="534.0" prefHeight="29.0" prefWidth="253.0" />
+      <Label layoutX="79.0" layoutY="391.0" text="Category" textAlignment="RIGHT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="btnChooseCategory" layoutX="149.0" layoutY="388.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
