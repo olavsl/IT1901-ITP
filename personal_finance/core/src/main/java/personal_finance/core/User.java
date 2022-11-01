@@ -9,7 +9,6 @@ public class User {
     private String username;
     private String password;
     private List<Transaction> transactions = new ArrayList<>();
-
     public User() {}
 
     public User(String username, String password) {
@@ -27,6 +26,19 @@ public class User {
 
     public List<Transaction> getTransactions() {
         return this.transactions;
+    }
+
+    public List<Category> getCategories() {
+        List<Category> categories = new ArrayList<>();
+        
+        for (int i = 0; i < getTransactions().size(); i++) {
+            Category category = getTransactions().get(i).getCategory();
+            if (!categories.contains(category)) {
+                categories.add(category);
+            }
+        }
+        
+        return categories;
     }
 
     public void addTransaction(Transaction transaction) {
