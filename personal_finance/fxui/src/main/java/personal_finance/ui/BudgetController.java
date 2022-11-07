@@ -72,7 +72,10 @@ public class BudgetController extends SceneSwitcher {
         double limit;
         String title = categoryTitle.getText();
         
-        //errorhandeling
+        if (this.user.getBudget()==null) {
+            userFeedback.setText("Budget startdate is not set, try again");
+            return;
+        }
         try {
             limit = Double.valueOf(categoryLimit.getText());
             if (limit<0) {
