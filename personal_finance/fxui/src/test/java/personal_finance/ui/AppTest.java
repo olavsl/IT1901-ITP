@@ -44,13 +44,13 @@ public class AppTest extends ApplicationTest {
 
     @BeforeEach
     public void makeUserAndLogIn() {
-//creates user "test"
-      clickOn("#signUpBtn");
-      clickOn("#username").write("test");
-      clickOn("#password").write("test");
-      clickOn("#confirmedPassword").write("test");
-      clickOn("#createBtn");
-      clickOn("#logInBtn");
+    //creates user "test"
+        clickOn("#signUpBtn");
+        clickOn("#username").write("test");
+        clickOn("#password").write("test");
+        clickOn("#confirmedPassword").write("test");
+        clickOn("#createBtn");
+        clickOn("#logInBtn");
         logIn();
     }
 
@@ -71,8 +71,6 @@ public class AppTest extends ApplicationTest {
 
     @Test
     public void testAddTransaction() {
-        logIn();
-
         clickOn("#addBtn");
 
         clickOn("#transactionTitle").write("test");
@@ -94,6 +92,35 @@ public class AppTest extends ApplicationTest {
         clickOn("#saveBtn");
 
         assertFalse(userFeedback.getText().equals("Transaction added successfully"));
+    }
+
+    @Test
+    public void testBudget() {
+        clickOn("#budgetBtn");
+
+        Label userFeedback = (Label)lookup("#userFeedback");
+
+        clickOn("#setBtn");
+        assertTrue(userFeedback.getText().equals("Budget start date successfully set"));
+
+        clickOn("#budgetStartDate").write("11/1/2022");
+        clickOn("#setBtn");
+        assertTrue(userFeedback.getText().equals("Budget start date successfully changed"));
+
+        clickOn("#categoryTitle").write("test");
+        clickOn("#categoryLimit").write("1000");
+        clickOn("#saveBtn");
+        assertTrue(userFeedback.getText().equals("Successfully added category"));
+
+        clickOn("#categoryTitle").write("");
+        clickOn("#categoryLimit").write("1000");
+        clickOn("#saveBtn");
+        assertFalse(userFeedback.getText().equals("Successfully added category"));
+
+        clickOn("#categoryTitle").write("test");
+        clickOn("#categoryLimit").write("badInput");
+        clickOn("#saveBtn");
+        assertFalse(userFeedback.getText().equals("Successfully added category"));
     }
 
     @AfterEach
