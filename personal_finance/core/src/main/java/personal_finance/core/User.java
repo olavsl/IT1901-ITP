@@ -77,7 +77,7 @@ public class User {
         LocalDate startDate= LocalDate.now().withDayOfMonth(1);
         LocalDate endDate= startDate.plusMonths(1);
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
+            if (transaction.getDate().isAfter(startDate.minusDays(1)) && transaction.getDate().isBefore(endDate.plusDays(1))) {
                 sum+=transaction.getValue();
             }
         }
