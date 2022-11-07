@@ -90,15 +90,13 @@ public class BudgetController extends SceneSwitcher {
             userFeedback.setText("Title can not be empty, try again");
             return;
         }
-        List<Category> categories = user.getBudget().getCategories();
-        
-        for (Category category : categories) {
-            if (category.getTitle().equals(title)) {
-                userFeedback.setText("Already a category with this title, try again");
-                return;
-            }
+        try {
+            user.getBudget().addCategory(title, limit);
+        } catch (Exception e) {
+            userFeedback.setText(e.getMessage());
+            return;
         }
-        user.getBudget().addCategory(title, limit);
+
         updateCategoryOverview();
         userFeedback.setText("Successfully added category");
     }

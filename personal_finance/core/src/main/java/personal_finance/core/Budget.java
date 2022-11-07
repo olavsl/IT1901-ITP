@@ -12,10 +12,13 @@ public class Budget {
         setStartDate(startDate);
     }
 
-    public void addCategory(String title, double limit) {
+    public void addCategory(String title, double limit) throws IllegalArgumentException{
         if (!inList(title)) {
             Category category = new Category(title, limit);
             categories.add(category);
+        }
+        else {
+            throw new IllegalArgumentException("Category allready in budget");
         }
     }
 
