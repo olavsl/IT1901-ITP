@@ -20,6 +20,7 @@ public class TransactionHandler {
      * @param title
      * @param value
      * @param date
+     * @param category
      * @param user
      * @param database
      * @throws IOException

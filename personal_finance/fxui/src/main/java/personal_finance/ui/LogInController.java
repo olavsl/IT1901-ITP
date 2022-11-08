@@ -20,13 +20,13 @@ public class LogInController extends SceneSwitcher {
     public void logIn(ActionEvent event) throws IOException, NoSuchAlgorithmException {
         String username = this.username.getText();
         String password = this.password.getText();
-        
-        User user = LogInAuthenticator.logIn(username, password, "users.json");
-
-        if (user.equals(null)) {
-            wrongLogInFeedback.setText("Username and password are not matching!");
+        User user;
+        try {
+            user = LogInAuthenticator.logIn(username, password, "users.json");
+            switchToOverview(event, user);
+        } catch (Exception e) {
+            wrongLogInFeedback.setText("No user with these credentials");
+            return;
         }
-        
-        switchToOverview(event, user);
     }
 }

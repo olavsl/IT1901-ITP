@@ -9,13 +9,16 @@ public class Budget {
     private LocalDate startDate;
 
     public Budget(LocalDate startDate) {
-        this.startDate = startDate;
+        setStartDate(startDate);
     }
 
-    public void addCategory(String title, double limit) {
+    public void addCategory(String title, double limit) throws IllegalArgumentException{
         if (!inList(title)) {
             Category category = new Category(title, limit);
             categories.add(category);
+        }
+        else {
+            throw new IllegalArgumentException("Category allready in budget");
         }
     }
 
@@ -59,6 +62,30 @@ public class Budget {
 
     public double getCategoryLimitLeft(Category category, List<Transaction> transactions) {
         return category.getLimitLeft(startDate, transactions);
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public Category getCategoryFromString(String string){
+        for (Category category : categories) {
+            if (category.getTitle().equals(string)) {
+                return category;
+            }
+        }
+        return null;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        if (startDate==null) {
+            startDate = LocalDate.now();
+        }
+        this.startDate = startDate;
     }
 }
 
