@@ -59,7 +59,7 @@
       <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" />
       <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" />
       <ChoiceBox fx:id="btnFilterByCategory" layoutX="255.0" layoutY="225.0" prefWidth="150.0" />
-      <Label layoutX="75.0" layoutY="591.0" text="Budget complieance:">
+      <Label layoutX="75.0" layoutY="591.0" text="Budget compliance:">
          <font>
             <Font size="20.0" />
          </font>
