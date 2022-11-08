@@ -45,20 +45,19 @@ public class Category {
         this.limit = limit;
     }
 
-    //fix bug where it doesnt check for the transactions that are on startdate or enddate
     private double calcTotalMonth(LocalDate startDate, List<Transaction> transactions) {
         double sum = 0;
         startDate= LocalDate.now().withDayOfMonth(startDate.getDayOfMonth());
         LocalDate endDate = startDate.plusMonths(1);
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
+            if (transaction.getDate().isAfter(startDate.minusDays(1)) && transaction.getDate().isBefore(endDate) && transaction.getCategory().getTitle()==this.getTitle()) {
                 sum+=transaction.getValue();
             }
         }
         return sum;
     }
     /**
-    * Sums up all transactions and checks if sum is within limit
+    * Sums up all transactions with date between and including 1st day of month to last of month and checks if sum is <= limit
     * @param startDate The date to start the calculation
     * @param transactions The list of all transactions from user
     * @return True if sum is less or equal to limit
@@ -71,7 +70,7 @@ public class Category {
     }
 
     /**
-    * Sums up all transactions and calculates the remaining limit
+    * Sums up all transactions with date between and including 1st day of month to last of month and calculates the remaining limit
     * @param startDate The date to start the calculation
     * @param transactions The list of all transactions from user
     * @return Differance between limit and sum of transactions

@@ -72,18 +72,23 @@ public class User {
         this.budget = budget;
     }
 
+    /**
+    * Sums up all transactions with date between and including 1st day of month to last of month and returns the sum
+    */
     public double calcTotalMonth() {
         double sum = 0;
         LocalDate startDate= LocalDate.now().withDayOfMonth(1);
         LocalDate endDate= startDate.plusMonths(1);
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
+            if (transaction.getDate().isAfter(startDate.minusDays(1)) && transaction.getDate().isBefore(endDate)) {
                 sum+=transaction.getValue();
             }
         }
         return sum;
     }
-
+    /**
+    * Sums up all transactions and returns the sum
+    */
     public double calcTotalLife() {
         double sum = 0;
         for (Transaction transaction : transactions) {

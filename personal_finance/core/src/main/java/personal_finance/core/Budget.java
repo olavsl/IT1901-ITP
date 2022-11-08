@@ -24,6 +24,9 @@ public class Budget {
             Category category = new Category(title, limit);
             categories.add(category);
         }
+        else {
+            throw new IllegalArgumentException("Category allready in budget");
+        }
     }
 
     private boolean inList(String title) {
