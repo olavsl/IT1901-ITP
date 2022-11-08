@@ -1,0 +1,15 @@
+@startuml
+User -> LogInController: Write username in TextField username
+User -> LogInController: Write password in TextField password
+User -> LogInController: Click LogIn Button
+LogInController -> LogInAuthenticator: logIn(String,String)
+LogInAuthenticator --> LogInController: User
+
+alt no match
+    LogInAuthenticator --> LogInController: null
+    LogInController --> User: "No user with these credentials"
+end
+
+LogInController --> SceneSwitcher: switchToOverview(ActionEvent,User)
+SceneSwitcher --> User: Changes to Overview page
+@enduml
