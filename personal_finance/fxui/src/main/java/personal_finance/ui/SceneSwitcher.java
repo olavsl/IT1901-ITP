@@ -67,6 +67,7 @@ public class SceneSwitcher {
         BudgetController bc = loader.getController();
         bc.setUser(user);
         bc.updateDisplayname();
+        bc.updateCategoryOverview();
         switchScene(event, stage, scene, root);
     }
 }
