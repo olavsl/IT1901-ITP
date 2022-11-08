@@ -6,6 +6,7 @@ import java.util.List;
 import personal_finance.core.Budget;
 import personal_finance.core.Category;
 import personal_finance.core.User;
+import personal_finance.util.BudgetHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,7 +39,7 @@ public class BudgetController extends SceneSwitcher {
     }
 
     public void updateCategoryOverview() {
-        if (user.getBudget()==null) {
+        if (user.getBudget() == null) {
             return;
         }
         if (categories.isEmpty()) {
@@ -56,7 +57,7 @@ public class BudgetController extends SceneSwitcher {
     }
 
     @FXML
-    public void handleSetBudget(ActionEvent event) {
+    public void handleSetBudget(ActionEvent event) throws IOException {
         if (user.getBudget() != null) {
             user.getBudget().setStartDate(budgetStartDate.getValue());
             userFeedback.setText("Budget start date successfully changed");
@@ -65,6 +66,8 @@ public class BudgetController extends SceneSwitcher {
             user.setBudget(new Budget(budgetStartDate.getValue()));
             userFeedback.setText("Budget start date successfully set");
         }
+
+        BudgetHandler.handleCreateNewBudget(budgetStartDate.getValue(), this.user, "users.json");
     }
 
     @FXML
@@ -72,10 +75,10 @@ public class BudgetController extends SceneSwitcher {
         double limit;
         String title = categoryTitle.getText();
         
-        //errorhandeling
+        // Error handling
         try {
             limit = Double.valueOf(categoryLimit.getText());
-            if (limit<0) {
+            if (limit < 0) {
                 throw new IllegalArgumentException("Limit value out of bounds, can only be positive");
             }
         } catch (Exception e) {
@@ -87,6 +90,7 @@ public class BudgetController extends SceneSwitcher {
             userFeedback.setText("Title can not be empty, try again");
             return;
         }
+
         List<Category> categories = user.getBudget().getCategories();
         
         for (Category category : categories) {
@@ -95,11 +99,11 @@ public class BudgetController extends SceneSwitcher {
                 return;
             }
         }
+
         user.getBudget().addCategory(title, limit);
         updateCategoryOverview();
         userFeedback.setText("Successfully added category");
     }
-
 
     @FXML
     public void switchToAddTransaction(ActionEvent event) throws IOException {

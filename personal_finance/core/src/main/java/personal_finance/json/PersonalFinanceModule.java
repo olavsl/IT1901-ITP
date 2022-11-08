@@ -6,6 +6,8 @@ import java.util.Set;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
+import personal_finance.core.Budget;
+import personal_finance.core.Category;
 import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
@@ -27,6 +29,12 @@ public class PersonalFinanceModule extends SimpleModule {
 
         addSerializer(PersonalFinanceModel.class, new PersonalFinanceModelSerializer());
         addDeserializer(PersonalFinanceModel.class, new PersonalFinanceModelDeserializer());
+
+        addSerializer(Category.class, new CategorySerializer());
+        addDeserializer(Category.class, new CategoryDeserializer());
+
+        addSerializer(Budget.class, new BudgetSerializer());
+        addDeserializer(Budget.class, new BudgetDeserializer());
     }
 
     public PersonalFinanceModule() {
