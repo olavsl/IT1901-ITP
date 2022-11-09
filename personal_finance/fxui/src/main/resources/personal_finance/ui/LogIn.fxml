@@ -6,19 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #a1c0cc;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.LogInController">
    <children>
-      <Label layoutX="100.0" layoutY="113.0" text="PERSONAL FINANCE">
+      <Label layoutX="61.0" layoutY="103.0" text="PERSONAL FINANCE" textFill="#100958">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="224.0" layoutY="302.0" text="Username" />
-      <TextField fx:id="username" layoutX="177.0" layoutY="327.0" />
-      <Label layoutX="226.0" layoutY="372.0" text="Password" />
-      <TextField fx:id="password" layoutX="177.0" layoutY="395.0" />
-      <Button layoutX="198.0" layoutY="456.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="120.0" text="Log in" />
+      <TextField fx:id="username" layoutX="120.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="USERNAME" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="password" layoutX="121.0" layoutY="387.0" prefHeight="38.0" prefWidth="268.0" promptText="PASSWORD" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button layoutX="168.0" layoutY="541.0" mnemonicParsing="false" onAction="#logIn" prefHeight="58.0" prefWidth="173.0" style="-fx-background-color: #100958;" text="Log in" textFill="WHITE" />
       <Label fx:id="wrongLogInFeedback" alignment="CENTER" layoutX="106.0" layoutY="602.0" prefHeight="18.0" prefWidth="304.0" textAlignment="CENTER" />
-      <Button layoutX="198.0" layoutY="505.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="25.0" prefWidth="120.0" text="Sign up" />
+      <Button layoutX="309.0" layoutY="707.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #100958;" text="Sign up" textFill="WHITE" />
    </children>
 </AnchorPane>

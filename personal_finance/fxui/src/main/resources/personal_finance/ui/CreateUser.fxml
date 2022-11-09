@@ -6,21 +6,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.CreateUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #a1c0cc;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.CreateUserController">
    <children>
-      <Label layoutX="100.0" layoutY="113.0" text="PERSONAL FINANCE">
+      <Label layoutX="61.0" layoutY="103.0" text="PERSONAL FINANCE" textFill="#100958">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="224.0" layoutY="302.0" text="Username" />
-      <TextField fx:id="username" layoutX="177.0" layoutY="327.0" />
-      <Label layoutX="226.0" layoutY="372.0" text="Password" />
-      <TextField fx:id="password" layoutX="177.0" layoutY="395.0" />
-      <Label layoutX="202.0" layoutY="427.0" text="Confirm password" />
-      <TextField fx:id="confirmedPassword" layoutX="179.0" layoutY="450.0" />
-      <Button layoutX="194.0" layoutY="524.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="120.0" text="Create User" />
+      <TextField fx:id="username" layoutX="120.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="USERNAME" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="password" layoutX="121.0" layoutY="387.0" prefHeight="38.0" prefWidth="268.0" promptText="PASSWORD" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="confirmedPassword" layoutX="120.0" layoutY="435.0" prefHeight="38.0" prefWidth="268.0" promptText="CONFIRM PASSWORD" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button layoutX="168.0" layoutY="541.0" mnemonicParsing="false" onAction="#createUser" prefHeight="58.0" prefWidth="173.0" style="-fx-background-color: #100958;" text="Create User" textFill="WHITE" />
       <Label fx:id="createUserFeedback" alignment="CENTER" layoutX="64.0" layoutY="583.0" prefHeight="45.0" prefWidth="381.0" textAlignment="CENTER" />
-      <Button layoutX="193.0" layoutY="651.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log in" />
+      <Button layoutX="309.0" layoutY="707.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #100958;" text="Go to LOG IN" textFill="WHITE" />
    </children>
 </AnchorPane>
