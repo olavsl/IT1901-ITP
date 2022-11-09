@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
+import personal_finance.core.Budget;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
 
@@ -43,6 +44,9 @@ public class UserDeserializer extends JsonDeserializer<User> {
                     }
 ;                }
             }
+            JsonNode budgetNode = objectNode.get("budget");
+            Budget budget = new BudgetDeserializer().deserialize(budgetNode);
+            user.setBudget(budget);
 
             return user;
         }

@@ -6,6 +6,7 @@ import java.util.List;
 import personal_finance.core.Budget;
 import personal_finance.core.Category;
 import personal_finance.core.User;
+import personal_finance.util.BudgetHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,7 +39,7 @@ public class BudgetController extends SceneSwitcher {
     }
 
     public void updateCategoryOverview() {
-        if (user.getBudget()==null) {
+        if (user.getBudget() == null) {
             return;
         }
         if (categories.isEmpty()) {
@@ -56,7 +57,7 @@ public class BudgetController extends SceneSwitcher {
     }
 
     @FXML
-    public void handleSetBudget(ActionEvent event) {
+    public void handleSetBudget(ActionEvent event) throws IOException {
         if (user.getBudget() != null) {
             user.getBudget().setStartDate(budgetStartDate.getValue());
             userFeedback.setText("Budget start date successfully changed");
@@ -65,42 +66,53 @@ public class BudgetController extends SceneSwitcher {
             user.setBudget(new Budget(budgetStartDate.getValue()));
             userFeedback.setText("Budget start date successfully set");
         }
+
+        BudgetHandler.handleCreateNewBudget(budgetStartDate.getValue(), this.user, "users.json");
     }
 
     @FXML
     public void handleAddCategory(ActionEvent event) {
-        double limit;
         String title = categoryTitle.getText();
-        
-        if (this.user.getBudget()==null) {
-            userFeedback.setText("Budget startdate is not set, try again");
-            return;
-        }
-        try {
-            limit = Double.valueOf(categoryLimit.getText());
-            if (limit<0) {
-                throw new IllegalArgumentException("Limit value out of bounds, can only be positive");
-            }
-        } catch (Exception e) {
-            userFeedback.setText("Limit field is only for positive numbers, try again");
-            return;
-        }
+        double limit;
 
         if (title.equals("")) {
-            userFeedback.setText("Title can not be empty, try again");
-            return;
+            userFeedback.setText("Category must have a title!");
+            throw new IllegalArgumentException("Category must have a title!");
         }
+
         try {
-            user.getBudget().addCategory(title, limit);
+            limit = Double.valueOf(categoryLimit.getText());
+        } catch (Exception e) {
+            userFeedback.setText("Limit can only be a decimal number!");
+            throw new IllegalArgumentException("Limit can only be a decimal number!");
+        }
+
+        if (limit < 0) {
+            userFeedback.setText("Limit must be a positive number!");
+            throw new IllegalArgumentException("Limit must be a positive number!");
+        }
+
+        for (Category c : this.user.getBudget().getCategories()) {
+            if (c.getTitle().equals(title)) {
+                userFeedback.setText("A category with that name already exists!");
+                throw new IllegalArgumentException("A category with that name already exists!");
+            }
+        }
+
+        Category category = new Category(title, limit);
+
+        try {
+            BudgetHandler.handleAddCategory(category, user, "users.json");
+            this.user.getBudget().addCategory(category);
         } catch (Exception e) {
             userFeedback.setText(e.getMessage());
+            e.printStackTrace();
             return;
         }
 
         updateCategoryOverview();
         userFeedback.setText("Successfully added category");
     }
-
 
     @FXML
     public void switchToAddTransaction(ActionEvent event) throws IOException {

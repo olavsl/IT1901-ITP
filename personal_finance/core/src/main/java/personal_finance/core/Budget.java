@@ -1,6 +1,7 @@
 package personal_finance.core;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +9,14 @@ public class Budget {
     private List<Category> categories = new ArrayList<>();
     private LocalDate startDate;
 
+    public Budget() {}
+
     public Budget(LocalDate startDate) {
         setStartDate(startDate);
+    }
+
+    public void addCategory(Category category) {
+        this.categories.add(category);
     }
 
     public void addCategory(String title, double limit) throws IllegalArgumentException{
@@ -86,6 +93,11 @@ public class Budget {
             startDate = LocalDate.now();
         }
         this.startDate = startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        this.startDate = LocalDate.parse(startDate, formatter);
     }
 }
 

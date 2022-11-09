@@ -27,6 +27,9 @@ public class UserSerializer extends JsonSerializer<User> {
             }
             generator.writeEndArray();
         }
+        if (user.getBudget() != null) {
+            generator.writeObjectField("budget", user.getBudget());
+        }
         generator.writeEndObject();
     }
 
