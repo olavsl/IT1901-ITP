@@ -6,18 +6,58 @@
       "title" : "test",
       "value" : 10.0,
       "date" : "01/11/2022",
-      "category" : [ {
-        "title" : "Other",
-        "limit" : 0.0
-      } ]
+      "category" : null
     }, {
       "title" : "test2",
       "value" : 1.0,
       "date" : "01/11/2022",
-      "category" : [ {
-        "title" : "Other",
-        "limit" : 0.0
-      } ]
+      "category" : null
     } ]
+  }, {
+    "username" : "qwer",
+    "password" : "f6f2ea8f45d8a057c9566a33f99474da2e5c6a6604d736121650e2730c6fb0a3",
+    "transactions" : [ {
+      "title" : "test",
+      "value" : 500.0,
+      "date" : "01/11/2022",
+      "category" : {
+        "title" : "test",
+        "limit" : 1000.0
+      }
+    }, {
+      "title" : "test123",
+      "value" : 500.0,
+      "date" : "01/11/2022",
+      "category" : {
+        "title" : "test",
+        "limit" : 1000.0
+      }
+    }, {
+      "title" : "test42",
+      "value" : 1.0,
+      "date" : "23/11/2022",
+      "category" : {
+        "title" : "test",
+        "limit" : 1000.0
+      }
+    }, {
+      "title" : "qqq",
+      "value" : 1001.0,
+      "date" : "02/11/2022",
+      "category" : {
+        "title" : "q",
+        "limit" : 1000.0
+      }
+    } ],
+    "budget" : {
+      "startDate" : "01/11/2022",
+      "categories" : [ {
+        "title" : "test",
+        "limit" : 1000.0
+      }, {
+        "title" : "q",
+        "limit" : 1000.0
+      } ]
+    }
   } ]
 }
