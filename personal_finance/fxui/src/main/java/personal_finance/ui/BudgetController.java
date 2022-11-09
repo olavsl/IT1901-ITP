@@ -1,7 +1,6 @@
 package personal_finance.ui;
 
 import java.io.IOException;
-import java.util.List;
 
 import personal_finance.core.Budget;
 import personal_finance.core.Category;
