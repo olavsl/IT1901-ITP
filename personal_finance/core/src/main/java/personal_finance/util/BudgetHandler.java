@@ -34,7 +34,13 @@ public class BudgetHandler {
         for (User u : model.getUsers()) {
             if (user.getUsername().equals(u.getUsername())) {
                 budget = u.getBudget();
-                budget.setStartDate(startDate);
+        
+                if (budget == null) {
+                    budget = new Budget(startDate);
+                } else {
+                    budget.setStartDate(startDate);
+                }
+
                 u.setBudget(budget);
             }
         }
