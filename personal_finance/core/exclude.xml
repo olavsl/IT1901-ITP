@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter>
+<Match>
+    <Class name="personal_finance.core.Budget" />
+  </Match>
   <Match>
     <Class name="personal_finance.core.Category" />
   </Match>
@@ -13,15 +16,33 @@
     <Class name="personal_finance.core.User" />
   </Match>
   <Match>
+    <Class name="personal_finance.json.BudgetDeserializer" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.BudgetSerializer" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.CategoryDeserializer" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.PersonalFinanceModelDeserializer" />
+  </Match>
+  <Match>
     <Class name="personal_finance.json.PersonalFinanceModelSerializer" />
   </Match>
   <Match>
-    <Class name="personal_finance.json.UserSerializer" />
+    <Class name="personal_finance.json.TransactionDeserializer" />
   </Match>
   <Match>
     <Class name="personal_finance.core.Transaction" />
   </Match>
   <Match>
     <Class name="personal_finance.util.TransactionsSorter" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.UserDeserializer" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.json.UserSerializer" />
   </Match>
 </FindBugsFilter>
