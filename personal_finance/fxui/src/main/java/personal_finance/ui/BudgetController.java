@@ -102,7 +102,7 @@ public class BudgetController extends SceneSwitcher {
 
         try {
             BudgetHandler.handleAddCategory(category, user, "users.json");
-            this.user.getBudget().addCategory(category);
+            // this.user.getBudget().addCategory(category);
         } catch (Exception e) {
             userFeedback.setText(e.getMessage());
             e.printStackTrace();
