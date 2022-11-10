@@ -8,11 +8,13 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.EnumSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import personal_finance.core.PersonalFinanceModel;
 
@@ -25,8 +27,12 @@ public class PersonalFinancePersistence {
         mapper = createObjectMapper();
     }
 
+    public static SimpleModule createJacksonModule(Set<PersonalFinanceModelParts> parts) {
+        return new PersonalFinanceModule(parts);
+    }
+
     public enum PersonalFinanceModelParts {
-        USERS, TRANSACTIONS
+        USERS, TRANSACTIONS, BUDGET, CATEGORY
     }
 
     public void setStorageFile(final String path) throws IOException {
