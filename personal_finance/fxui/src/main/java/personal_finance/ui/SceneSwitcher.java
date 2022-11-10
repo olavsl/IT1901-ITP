@@ -55,6 +55,7 @@ public class SceneSwitcher {
         Parent root = loader.load();
         AddTransactionController ac = loader.getController();
         ac.setUser(user);
+        ac.setCategoryChoices();
         ac.updateDisplayname();
         switchScene(event, stage, scene, root);
     }
@@ -66,6 +67,7 @@ public class SceneSwitcher {
         BudgetController bc = loader.getController();
         bc.setUser(user);
         bc.updateDisplayname();
+        bc.updateCategoryOverview();
         switchScene(event, stage, scene, root);
     }
 }

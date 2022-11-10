@@ -33,8 +33,12 @@ public class TransactionDeserializer extends JsonDeserializer<Transaction> {
                 transaction.setValue(valueNode.asInt());
             }
             JsonNode dateNode = objectNode.get("date");
-            if (dateNode instanceof TextNode) { // TODO: serialization of dates is tricky: https://www.baeldung.com/jackson-serialize-dates
+            if (dateNode instanceof TextNode) { 
                 transaction.setDate(dateNode.asText());
+            }
+            JsonNode categoryNode = objectNode.get("category");
+            if (categoryNode instanceof ObjectNode) {
+                transaction.setCategory(new CategoryDeserializer().deserialize(categoryNode));
             }
 
             return transaction;

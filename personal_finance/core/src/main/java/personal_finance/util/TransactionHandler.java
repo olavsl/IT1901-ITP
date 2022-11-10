@@ -3,6 +3,7 @@ package personal_finance.util;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import personal_finance.core.Category;
 import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
@@ -19,17 +20,25 @@ public class TransactionHandler {
      * @param title
      * @param value
      * @param date
+     * @param category
      * @param user
      * @param database
      * @throws IOException
      */
-    public static void handleAddTransaction(String title, double value, LocalDate date, User user, String database) throws IOException {
-        Transaction transaction;
+    public static void handleAddTransaction(String title, double value, LocalDate date, Category category, User user, String database) throws IOException {
+        Transaction transaction = new Transaction(title, value);
 
         if (date == null) {
-            transaction = new Transaction(title, value, LocalDate.now());
+            transaction.setDate(LocalDate.now());
         } else {
-            transaction = new Transaction(title, value, date);
+            transaction.setDate(date);
+        }
+
+        if (category == null) {
+            Category other = new Category("Other", 0);
+            transaction.setCategory(other);
+        } else {
+            transaction.setCategory(category);
         }
 
         pfp.setStorageFile(database);

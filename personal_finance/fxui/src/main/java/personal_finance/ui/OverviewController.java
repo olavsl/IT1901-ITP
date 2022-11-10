@@ -1,11 +1,14 @@
 package personal_finance.ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -17,11 +20,13 @@ public class OverviewController extends SceneSwitcher {
 
     @FXML private Label totLife;
     @FXML private Label totMonth;
+    @FXML private Label budgetCompliance;
     @FXML private TableView<Transaction> transactionOverview;
-    @FXML TableColumn<Transaction, String> transactionTitles;
-    @FXML TableColumn<Transaction, Double> transactionAmounts;
-    @FXML TableColumn<Transaction, String> transactionDates;
+    @FXML private TableColumn<Transaction, String> transactionTitles;
+    @FXML private TableColumn<Transaction, Double> transactionAmounts;
+    @FXML private TableColumn<Transaction, String> transactionDates;
     @FXML private Label usernameDisplay;
+    @FXML private ChoiceBox<String> btnFilterByCategory;
     ObservableList<Transaction> transactions = FXCollections.observableArrayList();
 
     private User user;
@@ -40,6 +45,41 @@ public class OverviewController extends SceneSwitcher {
         transactionDates.setCellValueFactory(new PropertyValueFactory<Transaction, String>("date"));
         
         transactionOverview.setItems(transactions);
+
+        List<String> categories = new ArrayList<>();
+
+        for (int i = 0; i < user.getTransactions().size(); i++) {
+            String c = user.getTransactions().get(i).getCategory().getTitle();
+            if (!categories.contains(c)) {
+                categories.add(c);
+                btnFilterByCategory.getItems().add(c);
+            }
+        }
+
+        btnFilterByCategory.getItems().add("All Transactions");
+
+        btnFilterByCategory.setOnAction((event) -> {
+            String selectedCategory = btnFilterByCategory.getSelectionModel().getSelectedItem();
+            filterByCategory(selectedCategory);
+        });
+    }
+
+    public void filterByCategory(String categoryName) {
+        this.transactions.clear();
+
+        if (categoryName.equals("All Transactions")) {
+            for (Transaction t : user.getTransactions()) {
+                this.transactions.add(t);
+            }
+        } else {
+            for (Transaction t : user.getTransactions()) {
+                if (t.getCategory().getTitle().equals(categoryName)) {
+                    this.transactions.add(t);
+                }
+            }
+        }
+
+        transactionOverview.setItems(transactions);
     }
 
     public void updateDisplayname() {
@@ -49,6 +89,16 @@ public class OverviewController extends SceneSwitcher {
     public void updateTotals() {
         totLife.setText(String.valueOf(this.user.calcTotalLife()));
         totMonth.setText(String.valueOf(this.user.calcTotalMonth()));
+
+        if (user.getBudget()!=null && this.user.getBudget().budgetCompliance(user.getTransactions())) {
+            budgetCompliance.setText("All good");
+        }
+        else if (user.getBudget()!=null && !this.user.getBudget().budgetCompliance(user.getTransactions())) {
+            budgetCompliance.setText("Over limit in one or more categories");
+        }
+        else {
+            budgetCompliance.setText("Budget not yet set");
+        }
     }
 
     public void updateOverview() {

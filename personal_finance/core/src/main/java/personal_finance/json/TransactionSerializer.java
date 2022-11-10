@@ -22,6 +22,7 @@ public class TransactionSerializer extends JsonSerializer<Transaction> {
         generator.writePOJOField("value", transaction.getValue());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         generator.writeStringField("date", formatter.format(transaction.getDate()));
+        generator.writeObjectField("category", transaction.getCategory());
         generator.writeEndObject();
     }
 

@@ -9,12 +9,14 @@ public class User {
     private String username;
     private String password;
     private List<Transaction> transactions = new ArrayList<>();
-
-    public User() {}
+    private Budget budget;
 
     public User(String username, String password) {
         setUsername(username);
         setPassword(password);; // For later: Hash passord for more security
+    }
+
+    public User() {
     }
 
     public String getUsername() {
@@ -27,6 +29,19 @@ public class User {
 
     public List<Transaction> getTransactions() {
         return this.transactions;
+    }
+
+    public List<Category> getCategories() {
+        List<Category> categories = new ArrayList<>();
+        
+        for (int i = 0; i < getTransactions().size(); i++) {
+            Category category = getTransactions().get(i).getCategory();
+            if (!categories.contains(category)) {
+                categories.add(category);
+            }
+        }
+        
+        return categories;
     }
 
     public void addTransaction(Transaction transaction) {
@@ -49,18 +64,31 @@ public class User {
         this.password = password;
     }
 
+    public Budget getBudget() {
+        return this.budget;
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget = budget;
+    }
+
+    /**
+    * Sums up all transactions with date between and including 1st day of month to last of month and returns the sum
+    */
     public double calcTotalMonth() {
         double sum = 0;
         LocalDate startDate= LocalDate.now().withDayOfMonth(1);
         LocalDate endDate= startDate.plusMonths(1);
         for (Transaction transaction : transactions) {
-            if (transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate)) {
+            if (transaction.getDate().isAfter(startDate.minusDays(1)) && transaction.getDate().isBefore(endDate)) {
                 sum+=transaction.getValue();
             }
         }
         return sum;
     }
-
+    /**
+    * Sums up all transactions and returns the sum
+    */
     public double calcTotalLife() {
         double sum = 0;
         for (Transaction transaction : transactions) {

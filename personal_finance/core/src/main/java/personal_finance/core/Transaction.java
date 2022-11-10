@@ -7,6 +7,7 @@ public class Transaction {
     private String title;
     private double value;
     private LocalDate date;
+    private Category category;
 
     public Transaction() {}
 
@@ -49,5 +50,17 @@ public class Transaction {
     public void setDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         this.date = LocalDate.parse(date, formatter);
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 }
