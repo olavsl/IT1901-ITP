@@ -1,6 +1,7 @@
 package personal_finance.ui;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -23,6 +24,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
+import org.testfx.service.query.NodeQuery;
+
+import javafx.scene.Node;
+import javafx.scene.control.Labeled;
 
 public class AppTest extends ApplicationTest {
 
@@ -54,8 +59,21 @@ public class AppTest extends ApplicationTest {
         logIn();
     }
 
+    @Test
+    public void testLogInScreen() {
+        clickOn("#logOutBtn");
+        clickOn("#username").write("wrong");
+        clickOn("#password").write("wrong");
+        clickOn("#logInBtn");
+
+        Label wrongLogInFeedback = (Label)lookup("#wrongLogInFeedback").queryLabeled();
+
+        assertTrue(wrongLogInFeedback.getText().equals("No user with these credentials"));
+    }
+
     //presses all possible combination of buttons
     @Test
+    
     public void testMenuBtns() {
           List<String> btns = new ArrayList<String>(Arrays.asList("#overviewBtn","#addBtn","#budgetBtn"));
           for (  String x : btns) {
@@ -77,18 +95,17 @@ public class AppTest extends ApplicationTest {
         clickOn("#transactionAmount").write("100");
         clickOn("#saveBtn");
 
-        Label userFeedback = (Label)lookup("#userFeedback");
+        Label userFeedback = (Label)lookup("#userFeedback").queryLabeled();
 
         assertTrue(userFeedback.getText().equals("Transaction added successfully"));
 
-        clickOn("#transactionTitle").write("");
-        clickOn("#transactionAmount").write("100");
+        clickOn("#transactionTitle").eraseText(5).write("");
         clickOn("#saveBtn");
 
         assertFalse(userFeedback.getText().equals("Transaction added successfully"));
 
         clickOn("#transactionTitle").write("test");
-        clickOn("#transactionAmount").write("badInput");
+        clickOn("#transactionAmount").eraseText(5).write("badInput");
         clickOn("#saveBtn");
 
         assertFalse(userFeedback.getText().equals("Transaction added successfully"));
@@ -98,28 +115,31 @@ public class AppTest extends ApplicationTest {
     public void testBudget() {
         clickOn("#budgetBtn");
 
-        Label userFeedback = (Label)lookup("#userFeedback");
+        Label userFeedback = (Label)lookup("#userFeedback").queryLabeled();
 
         clickOn("#setBtn");
         assertTrue(userFeedback.getText().equals("Budget start date successfully set"));
-
+        
         clickOn("#budgetStartDate").write("11/1/2022");
         clickOn("#setBtn");
+
         assertTrue(userFeedback.getText().equals("Budget start date successfully changed"));
 
         clickOn("#categoryTitle").write("test");
         clickOn("#categoryLimit").write("1000");
         clickOn("#saveBtn");
+
         assertTrue(userFeedback.getText().equals("Successfully added category"));
 
-        clickOn("#categoryTitle").write("");
-        clickOn("#categoryLimit").write("1000");
+        clickOn("#categoryTitle").eraseText(5).write("");
         clickOn("#saveBtn");
+
         assertFalse(userFeedback.getText().equals("Successfully added category"));
 
         clickOn("#categoryTitle").write("test");
-        clickOn("#categoryLimit").write("badInput");
+        clickOn("#categoryLimit").eraseText(5).write("badInput");
         clickOn("#saveBtn");
+
         assertFalse(userFeedback.getText().equals("Successfully added category"));
     }
 
