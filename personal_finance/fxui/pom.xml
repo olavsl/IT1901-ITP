@@ -25,11 +25,11 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- <dependency>
+        <dependency>
             <groupId>it1901.personal_finance</groupId>
             <artifactId>fxutil</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency> -->
+        </dependency>
 
 
         <!-- javafx -->

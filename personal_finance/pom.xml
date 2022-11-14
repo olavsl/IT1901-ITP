@@ -167,6 +167,7 @@
     <modules>
         <module>core</module>
         <module>fxui</module>
+        <module>fxutil</module>
         <module>rest</module>
     </modules>
 
