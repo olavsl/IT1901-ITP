@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Bean;
 import personal_finance.json.PersonalFinancePersistence;
 import personal_finance.json.PersonalFinancePersistence.PersonalFinanceModelParts;
 
+/*
+ * Run the project with spring.
+ */
 @SpringBootApplication
 public class PersonalFinanceModelApplication {
     

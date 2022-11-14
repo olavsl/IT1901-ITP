@@ -1,6 +1,7 @@
 package personal_finance.restserver;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.User;
 
+/*
+ * REST API
+ */
 @RestController
 @RequestMapping(PersonalFinanceModelController.PERSONALFINANCE_MODEL_SERVICE_PATH)
 public class PersonalFinanceModelController {
 
-    public static final String PERSONALFINANCE_MODEL_SERVICE_PATH = "personalFinance";
+    public static final String PERSONALFINANCE_MODEL_SERVICE_PATH = "personal_finance";
 
     @Autowired
     private PersonalFinanceModelService modelService;
@@ -48,7 +52,7 @@ public class PersonalFinanceModelController {
      * @param username
      * @return the corresponding user
      */
-    @GetMapping
+    @GetMapping(path = "/users/{user}")
     public User getUser(@PathVariable("user") String username) {
         User user = getPersonalFinanceModel().getUser(username);
         checkIfUserExists(user, username);
@@ -63,11 +67,20 @@ public class PersonalFinanceModelController {
      * @param user
      * @return true if a new user was added
      */
-    @PutMapping
+    @PutMapping(path = "/users/{user}")
     public boolean putUser(@PathVariable("user") String username, @RequestBody User user) {
         boolean addedNewUser = getPersonalFinanceModel().putUser(user) == null;
         savePersonalFinanceModel();
         return addedNewUser;
+    }
+
+    @DeleteMapping(path = "/users/{user}")
+    public boolean deleteUser(@PathVariable("user") String username) {
+        User user = getPersonalFinanceModel().getUser(username);
+        checkIfUserExists(user, username);
+        getPersonalFinanceModel().deleteUser(username);
+        savePersonalFinanceModel();
+        return true;
     }
 
 }
