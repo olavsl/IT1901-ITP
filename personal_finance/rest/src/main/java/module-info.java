@@ -1,4 +1,4 @@
-module personal_finance.restserver {
+module personal_finance.rest {
     requires com.fasterxml.jackson.databind;
 
     requires spring.web;
@@ -7,8 +7,9 @@ module personal_finance.restserver {
     requires spring.context;
     requires spring.boot.autoconfigure;
 
-    requires personal_finance.core;
+    requires transitive personal_finance.core;
+
+    exports personal_finance.restserver;
 
     opens personal_finance.restserver to spring.beans, spring.context, spring.web;
-
 }
