@@ -66,6 +66,40 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>localapp</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-maven-plugin</artifactId>
+                        <version>0.0.6</version>
+                        <configuration>                    
+                            <mainClass>personal_finance.ui/personal_finance.ui.App</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>remoteapp</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-maven-plugin</artifactId>
+                        <version>0.0.6</version>
+                        <configuration>                    
+                            <mainClass>personal_finance.ui/personal_finance.ui.RemoteApp</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
