@@ -10,6 +10,12 @@
     <Class name="personal_finance.util.PasswordHasher" />
   </Match>
   <Match>
+    <Class name="personal_finance.util.PersonalFinanceModelAccess" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.RemotePersonalFinanceModelAccess" />
+  </Match>
+  <Match>
     <Class name="personal_finance.util.TransactionHandler" />
   </Match>
   <Match>
