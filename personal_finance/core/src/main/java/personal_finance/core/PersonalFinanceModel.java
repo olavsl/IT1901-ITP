@@ -29,7 +29,7 @@ public class PersonalFinanceModel {
 
     public User getUser(String username) {
         for (User user : this.users) {
-            if (user.getUsername().equals(username)) {
+            if (user.getUsername() == username) {
                 return user;
             }
         }
