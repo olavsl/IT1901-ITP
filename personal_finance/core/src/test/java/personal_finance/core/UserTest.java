@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -52,6 +53,43 @@ public class UserTest {
         user.addTransaction(transaction1);
         user.addTransaction(transaction2);
         assertEquals(transactions, user.getTransactions());
+    }
+
+    @Test
+    public void testCalcTotalMonth() {
+        User user = new User("abcd", "password");
+        // Transaction with first day of month
+        Transaction transaction1 = new Transaction("Test", 100.0, LocalDate.now().withDayOfMonth(1));
+        // Transaction with last day of month
+        Transaction transaction2 = new Transaction("Test", 200.0, LocalDate.now().withDayOfMonth(1).plusMonths(1).minusDays(1));
+        user.addTransaction(transaction1);
+        user.addTransaction(transaction2);
+        assertEquals(300, user.calcTotalMonth());
+    }
+    
+    @Test
+    public void testCalcTotalLife() {
+        User user = new User("abcd", "password");
+        Transaction transaction1 = new Transaction("Test", 100.0);
+        Transaction transaction2 = new Transaction("Test", 200.0);
+        user.addTransaction(transaction1);
+        user.addTransaction(transaction2);
+
+        assertEquals(300, user.calcTotalLife());
+    }
+
+    @Test
+    public void testGetCategories() {
+        User user = new User("abcd", "password");
+        Transaction transaction1 = new Transaction("Test", 100.0);
+        Transaction transaction2 = new Transaction("Test", 200.0);
+        transaction1.setCategory(null);
+        transaction2.setCategory(new Category("title", 100));
+        user.addTransaction(transaction1);
+        assertTrue(user.getCategories().contains(null));
+
+        user.addTransaction(transaction2);
+        assertTrue(user.getCategories().contains(null) && user.getCategories().get(1).getTitle().equals("title"));
     }
     
 }
