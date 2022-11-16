@@ -56,6 +56,8 @@ public class RemotePersonalFinanceModelAccess implements PersonalFinanceModelAcc
 
     @Override
     public PersonalFinanceModel getPersonalFinanceModel() {
+        System.out.println("getPersonalFinanceModel()");
+        
         if (this.model == null) {
             HttpRequest request = HttpRequest.newBuilder(endpointBaseUri)
                 .header(ACCEPT_HEADER, APPLICATION_JSON)
@@ -75,11 +77,15 @@ public class RemotePersonalFinanceModelAccess implements PersonalFinanceModelAcc
 
     @Override
     public User getUser(String username) {
+        System.out.println("getUser(User user) : " + userUri(username));
+        
         return this.model.getUser(username);
     }
 
     @Override
     public void putUser(User user) {
+        System.out.println("putUser(User user) : " + userUri(user.getUsername()));
+        
         try {
             String json = objectMapper.writeValueAsString(user);
             HttpRequest request = HttpRequest.newBuilder(userUri(user.getUsername()))
@@ -124,6 +130,8 @@ public class RemotePersonalFinanceModelAccess implements PersonalFinanceModelAcc
 
     @Override
     public void deleteUser(User user) {
+        System.out.println("deleteUser(User user) : " + userUri(user.getUsername()));
+        
         try {
             HttpRequest request = HttpRequest.newBuilder(userUri(user.getUsername()))
                 .header(ACCEPT_HEADER, APPLICATION_JSON)

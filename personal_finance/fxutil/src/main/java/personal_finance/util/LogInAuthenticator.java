@@ -3,30 +3,28 @@ package personal_finance.util;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.User;
-import personal_finance.json.PersonalFinancePersistence;
 
 public class LogInAuthenticator {
     
-    private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
+    private static RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
     /**
      * @param username
      * @param password
-     * @param database
      * @return User object with matching username, if there exits one. Otherwise, null.
      * @throws IOException
      * @throws NoSuchAlgorithmException
      */
-    public static User logIn(String username, String password, String database) throws IOException, NoSuchAlgorithmException {
-        pfp.setStorageFile(database);
-        PersonalFinanceModel model = pfp.loadPersonalFinanceModel();
+    public static User logIn(String username, String password) throws IOException, NoSuchAlgorithmException {
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
+        
+        User user = remoteModelAccess.getUser(username);
 
-        for (User user : model.getUsers()) {
-            if (username.equals(user.getUsername()) && PasswordHasher.hash(password).equals(user.getPassword())) {
-                return user;
-            }
+        if (user == null) {
+            return null;
+        } else if (user.getPassword().equals(PasswordHasher.hash(password))) {
+            return user;
         }
 
         return null;
