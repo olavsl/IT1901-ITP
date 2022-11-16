@@ -54,7 +54,7 @@ public class TransactionsSorter {
             }
         }
 
-        return transactions;
+        return result;
     }
 
 }
