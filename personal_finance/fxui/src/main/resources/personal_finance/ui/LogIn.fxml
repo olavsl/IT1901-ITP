@@ -7,24 +7,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #a1c0cc;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.LogInController">
    <children>
-      <Label layoutX="61.0" layoutY="103.0" text="PERSONAL FINANCE" textFill="#100958">
+      <Label layoutX="61.0" layoutY="103.0" text="PERSONAL FINANCE" textFill="#285aa5">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="120.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="USERNAME" style="-fx-background-color: #ffffff;">
+      <TextField fx:id="username" layoutX="120.0" layoutY="315.0" prefHeight="38.0" prefWidth="268.0" promptText="USERNAME" style="-fx-background-color: #ffffff; -fx-border-color: #285aa5; -fx-border-radius: 10px; -fx-border-width: 2px;">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <PasswordField fx:id="password" layoutX="121.0" layoutY="387.0" prefHeight="38.0" prefWidth="268.0" promptText="PASSWORD" style="-fx-background-color: #ffffff;">
+      <PasswordField fx:id="password" layoutX="121.0" layoutY="387.0" prefHeight="38.0" prefWidth="268.0" promptText="PASSWORD" style="-fx-background-color: #ffffff; -fx-border-color: #285aa5; -fx-border-radius: 10px; -fx-border-width: 2px;">
          <font>
             <Font size="16.0" />
          </font>
       </PasswordField>
-      <Button layoutX="168.0" layoutY="541.0" mnemonicParsing="false" onAction="#logIn" prefHeight="58.0" prefWidth="173.0" style="-fx-background-color: #100958;" text="Log in" textFill="WHITE" />
-      <Label fx:id="wrongLogInFeedback" alignment="CENTER" layoutX="106.0" layoutY="615.0" prefHeight="18.0" prefWidth="304.0" textAlignment="CENTER" />
-      <Button layoutX="309.0" layoutY="707.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #100958;" text="Sign up" textFill="WHITE" />
+      <Button layoutX="278.0" layoutY="447.0" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #285aa5;" text="LOG IN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Label fx:id="wrongLogInFeedback" alignment="CENTER" layoutX="106.0" layoutY="615.0" prefHeight="18.0" prefWidth="304.0" textAlignment="CENTER" textFill="#285aa5" />
+      <Button layoutX="121.0" layoutY="447.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #ffffff;" text="Sign up" textFill="#285aa5">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
