@@ -3,6 +3,7 @@ package personal_finance.core;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
@@ -19,7 +20,17 @@ public class BudgetTest {
         Budget budget = new Budget(null);
         assertEquals(0, budget.getCategories().size());
         budget.addCategory("title", 100);
-        assertTrue(budget.getCategories().size()==0 && budget.getCategories().get(0).getTitle().equals("title"));
+        assertTrue(budget.getCategories().size()==1);
+        assertThrows(IllegalArgumentException.class, () -> budget.addCategory("title", 100));
+    }
+
+    @Test 
+    public void testAddCategory2(){
+        Budget budget = new Budget(null);
+        Category category = new Category("title",1000);
+        assertEquals(0, budget.getCategories().size());
+        budget.addCategory(category);
+        assertTrue(budget.getCategories().contains(category));
     }
 
     @Test
@@ -71,5 +82,27 @@ public class BudgetTest {
         transaction2.setCategory(category);
         transactions.add(transaction2);
         assertEquals(0, budget.getCategoryLimitLeft(category, transactions));
+    }
+    @Test
+    public void testGetSetStartDate(){
+        Budget budget = new Budget(null);
+        assertEquals(null,budget.getStartDate());
+        budget.setStartDate(LocalDate.now());
+        assertEquals(LocalDate.now(),budget.getStartDate());
+    }
+    @Test
+    public void testGetCategoryFromString() {
+        Budget budget = new Budget(null);
+        Category category = new Category("title",1000);
+        Category category2 = new Category("title2",1000);
+        Category category3 = new Category("title3",1000);
+        budget.addCategory(category);
+        budget.addCategory(category2);
+        budget.addCategory(category3);
+
+        assertEquals(category,budget.getCategoryFromString("title"));
+        assertEquals(category2,budget.getCategoryFromString("title2"));
+        assertEquals(category3,budget.getCategoryFromString("title3"));
+        assertEquals(null,budget.getCategoryFromString("lol"));
     }
 }
