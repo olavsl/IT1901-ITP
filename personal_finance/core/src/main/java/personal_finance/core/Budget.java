@@ -14,9 +14,9 @@ public class Budget {
     public Budget(LocalDate startDate) {
         setStartDate(startDate);
     }
-
-    public List<Category> getCategories() {
-        return categories;
+    
+    public void addCategory(Category category) {
+        this.categories.add(category);
     }
 
     public void addCategory(String title, double limit) {
