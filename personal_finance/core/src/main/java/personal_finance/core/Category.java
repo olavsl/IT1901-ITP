@@ -63,6 +63,7 @@ public class Category {
     * @return True if sum is less or equal to limit
     */
     public boolean getLimitCompliance(LocalDate startDate, List<Transaction> transactions) {
+
         if (calcTotalMonth(startDate, transactions) <= this.limit) {
             return true;
         }
