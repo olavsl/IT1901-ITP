@@ -10,7 +10,7 @@ Open the project in GitPod: [![Gitpod Ready-to-Code](https://gitpod.stud.ntnu.no
 
  The project is built using Maven. 
 
- ### Developer installation
+ ***Developer installation***
  1. link 
  2. Open folder as Maven project in your IDE
  3. Install modules by running 'mvn install' in the root folder
