@@ -11,6 +11,8 @@ public interface PersonalFinanceModelAccess {
 
     public void putUser(User user);
 
+    public void postUser(User user);
+
     public void deleteUser(User user);
 
 }

@@ -19,8 +19,7 @@ public class UserCreater {
      * or the credentials are valid.
      * @throws IOException
      */
-    public static String validateNewUserCredentials(String username, String password, String confirmedPassword, String database) throws IOException {
-        remoteModelAccess.getPersonalFinanceModel();
+    public static String validateNewUserCredentials(String username, String password, String confirmedPassword) throws IOException {
         User user = remoteModelAccess.getUser(username);
 
         if (user != null) {
@@ -43,10 +42,9 @@ public class UserCreater {
      * @throws IOException
      * @throws NoSuchAlgorithmException
      */
-    public static void createUser(String username, String password, String database) throws IOException, NoSuchAlgorithmException {
-        remoteModelAccess.getPersonalFinanceModel();
+    public static void createUser(String username, String password) throws IOException, NoSuchAlgorithmException {
         User user = new User(username, PasswordHasher.hash(password));
-        remoteModelAccess.putUser(user);
+        remoteModelAccess.postUser(user);
     }
 
     /**
@@ -56,7 +54,7 @@ public class UserCreater {
      * @param database
      * @throws IOException
      */
-    public static void deleteUser(String username, String database) throws IOException {
+    public static void deleteUser(String username) throws IOException {
         remoteModelAccess.deleteUser(remoteModelAccess.getPersonalFinanceModel().getUser(username));
     }
 
