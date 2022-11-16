@@ -44,7 +44,7 @@ public class AddTransactionController extends SceneSwitcher {
             return;
         }
 
-        TransactionHandler.handleAddTransaction(title, value, date, this.chosenCategory, this.user, "users.json");
+        TransactionHandler.handleAddTransaction(title, value, date, this.chosenCategory, this.user);
 
         userFeedback.setText("Transaction added successfully");
     }

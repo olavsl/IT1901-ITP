@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import personal_finance.core.Category;
-import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
-import personal_finance.json.PersonalFinancePersistence;
 
 public class TransactionHandler {
     
-    private static PersonalFinancePersistence pfp = new PersonalFinancePersistence();
+    private static RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
     /**
      * Creates a transaction instance, which is stored in the database under current user. 
@@ -22,10 +20,9 @@ public class TransactionHandler {
      * @param date
      * @param category
      * @param user
-     * @param database
      * @throws IOException
      */
-    public static void handleAddTransaction(String title, double value, LocalDate date, Category category, User user, String database) throws IOException {
+    public static void handleAddTransaction(String title, double value, LocalDate date, Category category, User user) throws IOException {
         Transaction transaction = new Transaction(title, value);
 
         if (date == null) {
@@ -41,18 +38,9 @@ public class TransactionHandler {
             transaction.setCategory(category);
         }
 
-        pfp.setStorageFile(database);
-        PersonalFinanceModel model = pfp.loadPersonalFinanceModel();
-        
-        for (User u : model.getUsers()) {
-            if (user.getUsername().equals(u.getUsername())) {
-                u.addTransaction(transaction);
-            }
-        }
-
-        pfp.savePersonalFinanceModel(model);
-
+        remoteModelAccess.getPersonalFinanceModel();
         user.addTransaction(transaction);
+        remoteModelAccess.putUser(user);
     }
 
 }
