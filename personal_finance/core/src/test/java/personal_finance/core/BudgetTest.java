@@ -86,9 +86,9 @@ public class BudgetTest {
     @Test
     public void testGetSetStartDate(){
         Budget budget = new Budget(null);
-        assertEquals(null,budget.getStartDate());
-        budget.setStartDate(LocalDate.now());
         assertEquals(LocalDate.now(),budget.getStartDate());
+        budget.setStartDate(LocalDate.now().plusDays(1));
+        assertEquals(LocalDate.now().plusDays(1),budget.getStartDate());
     }
     @Test
     public void testGetCategoryFromString() {
