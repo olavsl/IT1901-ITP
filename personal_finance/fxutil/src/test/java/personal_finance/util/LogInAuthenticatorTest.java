@@ -17,28 +17,28 @@ public class LogInAuthenticatorTest {
 
     @BeforeAll
     public static void setUp() throws NoSuchAlgorithmException, IOException {
-        UserCreater.createUser("test", "test", "test.json");
+        UserCreater.createUser("test", "test");
     }
 
     @Test
     public void testLogIn() throws NoSuchAlgorithmException, IOException {
         User correctUser = new User("test", PasswordHasher.hash("test"));
-        User loggedInUser = LogInAuthenticator.logIn("test", "test", "test.json");
+        User loggedInUser = LogInAuthenticator.logIn("test", "test");
         
         assertEquals(correctUser.getUsername(), loggedInUser.getUsername());
         assertEquals(correctUser.getPassword(), loggedInUser.getPassword());
         assertEquals(correctUser.getTransactions(), loggedInUser.getTransactions());
 
-        assertEquals(null, LogInAuthenticator.logIn("test", "wrongPassword", "test.json"));
-        assertNotEquals(correctUser, LogInAuthenticator.logIn("test", "wrongPassword", "test.json"));
+        assertEquals(null, LogInAuthenticator.logIn("test", "wrongPassword"));
+        assertNotEquals(correctUser, LogInAuthenticator.logIn("test", "wrongPassword"));
         
         assertThrows(IOException.class, () -> {
-            LogInAuthenticator.logIn("test", "test", "nonExistingDatabase.json");
+            LogInAuthenticator.logIn("test", "test");
         });
     }
     
     @AfterAll
     public static void cleanUp() throws NoSuchAlgorithmException, IOException {
-        UserCreater.deleteUser("test", "test.json");
+        UserCreater.deleteUser("test");
     }
 }

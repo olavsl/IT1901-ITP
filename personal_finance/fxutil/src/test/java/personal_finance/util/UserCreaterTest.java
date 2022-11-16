@@ -23,19 +23,19 @@ public class UserCreaterTest {
         String allowedUsername = "username";
         String allowedPassword = "password";
 
-        assertEquals("valid", UserCreater.validateNewUserCredentials(allowedUsername, allowedPassword, allowedPassword, "test.json"));
+        assertEquals("valid", UserCreater.validateNewUserCredentials(allowedUsername, allowedPassword, allowedPassword));
 
-        UserCreater.createUser(allowedUsername, allowedPassword, "test.json");
+        UserCreater.createUser(allowedUsername, allowedPassword);
         String takenUsername = allowedUsername;
 
-        assertEquals("usernameTaken", UserCreater.validateNewUserCredentials(takenUsername, allowedPassword, allowedPassword, "test.json"));
+        assertEquals("usernameTaken", UserCreater.validateNewUserCredentials(takenUsername, allowedPassword, allowedPassword));
 
         String newUsername = "newUsername";
         String differentPassword = "password1";
 
-        assertEquals("differentPasswords", UserCreater.validateNewUserCredentials(newUsername, allowedPassword, differentPassword, "test.json"));
+        assertEquals("differentPasswords", UserCreater.validateNewUserCredentials(newUsername, allowedPassword, differentPassword));
 
-        UserCreater.deleteUser(allowedUsername, "test.json");
+        UserCreater.deleteUser(allowedUsername);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class UserCreaterTest {
         String newPassword = "newPassword";
         User user = new User(newUsername, PasswordHasher.hash(newPassword));
 
-        UserCreater.createUser(newUsername, newPassword, "test.json");
+        UserCreater.createUser(newUsername, newPassword);
 
         PersonalFinancePersistence pfp = new PersonalFinancePersistence();
         pfp.setStorageFile("test.json");
@@ -57,7 +57,7 @@ public class UserCreaterTest {
             }
         }
 
-        UserCreater.deleteUser(newUsername, "test.json");
+        UserCreater.deleteUser(newUsername);
 
         assertTrue(compareUsers(user, loadedUser));
     }
@@ -75,19 +75,19 @@ public class UserCreaterTest {
 
         PersonalFinancePersistence pfp = new PersonalFinancePersistence();
         pfp.setStorageFile("test.json");
-        UserCreater.createUser(username, password, "test.json");
+        UserCreater.createUser(username, password);
         PersonalFinanceModel loadedModel = pfp.loadPersonalFinanceModel();
 
         assertTrue(comparePersonalFinanceModels(modelWithUserToBeDeleted, loadedModel));
 
-        UserCreater.deleteUser(username, "test.json");
+        UserCreater.deleteUser(username);
 
         List<User> listWithoutUserToBeDeleted = new ArrayList<>();
         listWithoutUserToBeDeleted.add(new User("test", PasswordHasher.hash("test")));
         PersonalFinanceModel modelWithoutUserToBeDeleted = new PersonalFinanceModel(listWithoutUserToBeDeleted);
 
         PersonalFinanceModel loadedModel2 = pfp.loadPersonalFinanceModel();
-        UserCreater.deleteUser(username, "test.json");
+        UserCreater.deleteUser(username);
 
         assertTrue(comparePersonalFinanceModels(modelWithoutUserToBeDeleted, loadedModel2));
     }
