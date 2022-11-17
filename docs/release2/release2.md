@@ -10,7 +10,7 @@
 **Implemented documentation for release 2**
  * User stories in [user_stories.md](../user_stories.md)
  * Decisions made in [decisions.md](../decisions.md)
- * A package [diagram](../packagediagram.png) made with plantuml
+ * A package [diagram](../Diagrams/packagediagram.png) made with plantuml
 
 **Other**
  * Modulerized the project, now consits of a parent project with the modules core and ui separated
