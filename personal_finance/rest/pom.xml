@@ -9,7 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fxui</artifactId>
+    <artifactId>rest</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,87 +19,55 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>it1901.personal_finance</groupId>
             <artifactId>core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
-            <groupId>it1901.personal_finance</groupId>
-            <artifactId>fxutil</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version>
         </dependency>
 
-
-        <!-- javafx -->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>19</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>19</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.4.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <!-- test javafx with TextFX -->
-		<dependency>
-			<groupId>org.testfx</groupId>
-			<artifactId>testfx-core</artifactId>
-			<version>4.0.16-alpha</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.testfx</groupId>
-			<artifactId>testfx-junit5</artifactId>
-			<version>4.0.16-alpha</version>
-			<scope>test</scope>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+            <version>2.4.4</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest</artifactId>
-            <version>2.2</version>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.4.4</version>
             <scope>test</scope>
-        </dependency> -->
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>localapp</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.openjfx</groupId>
-                        <artifactId>javafx-maven-plugin</artifactId>
-                        <version>0.0.6</version>
-                        <configuration>                    
-                            <mainClass>personal_finance.ui/personal_finance.ui.App</mainClass>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>remoteapp</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.openjfx</groupId>
-                        <artifactId>javafx-maven-plugin</artifactId>
-                        <version>0.0.6</version>
-                        <configuration>                    
-                            <mainClass>personal_finance.ui/personal_finance.ui.RemoteApp</mainClass>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <build>
         <plugins>
@@ -116,7 +85,7 @@
 		        <version>3.0.0-M7</version>
                 <configuration>
                     <argLine>
-                    --add-opens personal_finance.ui/personal_finance.ui=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
+                    @{jaCoCoArgLine} --add-opens personal_finance.rest/personal_finance.restserver=ALL-UNNAMED
                     </argLine>
                 </configuration>
 	        </plugin>
@@ -136,6 +105,13 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- Needed to run the project on REST server -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.4</version>
             </plugin>
         </plugins>
     </build>

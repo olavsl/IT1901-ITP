@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="personal_finance.restserver.PersonalFinanceModelApplication" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.restserver.PersonalFinanceModelController" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.restserver.PersonalFinanceModelService" />
+  </Match>
+</FindBugsFilter>

@@ -4,5 +4,4 @@ module personal_finance.core {
 
     exports personal_finance.core;
     exports personal_finance.json;
-    exports personal_finance.util;
 }

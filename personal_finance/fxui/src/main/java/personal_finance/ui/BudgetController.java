@@ -66,7 +66,7 @@ public class BudgetController extends SceneSwitcher {
             userFeedback.setText("Budget start date successfully set");
         }
 
-        BudgetHandler.handleCreateNewBudget(budgetStartDate.getValue(), this.user, "users.json");
+        BudgetHandler.handleCreateNewBudget(budgetStartDate.getValue(), this.user);
     }
 
     @FXML
@@ -105,8 +105,8 @@ public class BudgetController extends SceneSwitcher {
         Category category = new Category(title, limit);
 
         try {
-            BudgetHandler.handleAddCategory(category, user, "users.json");
-            // this.user.getBudget().addCategory(category);
+            BudgetHandler.handleAddCategory(category, user);
+            this.user.getBudget().addCategory(category);
         } catch (Exception e) {
             userFeedback.setText(e.getMessage());
             e.printStackTrace();

@@ -6,6 +6,7 @@ module personal_finance.ui {
     requires javafx.base;
 
     requires personal_finance.core;
+    requires personal_finance.fxutil;
 
     opens personal_finance.ui to javafx.graphics, javafx.fxml, javafx.base;
 }

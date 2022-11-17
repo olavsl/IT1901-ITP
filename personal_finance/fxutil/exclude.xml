@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="personal_finance.util.BudgetHandler" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.LogInAuthenticator" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.PasswordHasher" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.PersonalFinanceModelAccess" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.RemotePersonalFinanceModelAccess" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.TransactionHandler" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.TransactionsSorter" />
+  </Match>
+  <Match>
+    <Class name="personal_finance.util.UserCreater" />
+  </Match>
+</FindBugsFilter>
