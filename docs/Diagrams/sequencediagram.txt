@@ -3,13 +3,25 @@ User -> LogInController: Write username in TextField username
 User -> LogInController: Write password in TextField password
 User -> LogInController: Click LogIn Button
 LogInController -> LogInAuthenticator: logIn(String,String)
-LogInAuthenticator --> LogInController: User
+LogInAuthenticator -> RemotePersonalFinanceModelAccess: new RemotePersonalFinanceModelAccess
+LogInAuthenticator -> RemotePersonalFinanceModelAccess: getUser(String)
+LogInAuthenticator -> RemotePersonalFinanceModelAccess: getPassword(String)
+RemotePersonalFinanceModelAccess -> PasswordHasher: hash(String)
+PasswordHasher -> RemotePersonalFinanceModelAccess: String
+note over RemotePersonalFinanceModelAccess: String == String
+
+RemotePersonalFinanceModelAccess -> LogInAuthenticator: User
+LogInAuthenticator -> LogInController: User
 
 alt no match
-    LogInAuthenticator --> LogInController: null
-    LogInController --> User: "No user with these credentials"
+note over RemotePersonalFinanceModelAccess: String != String
+
+RemotePersonalFinanceModelAccess  -> LogInAuthenticator: null
+LogInAuthenticator -> LogInController: null
+LogInController -> User: "No user with these credentials
+
 end
 
-LogInController --> SceneSwitcher: switchToOverview(ActionEvent,User)
-SceneSwitcher --> User: Changes to Overview page
+LogInController -> SceneSwitcher: switchToOverview(ActionEvent,User)
+SceneSwitcher -> User: Changes to Overview page
 @enduml
