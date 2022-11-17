@@ -15,7 +15,7 @@ Open the project in GitPod: [![Gitpod Ready-to-Code](https://gitpod.stud.ntnu.no
  2. Open folder as Maven project in your IDE and cd in to personal_fionance
  3. Install modules by running 'mvn install -DskipTests'
  4. Run 'mvn compile'
- 5. Run tests to see that everything works with 'mvn verify'
- 6. Start rest-server with 'mvn spring-boot:run -f rest/pom.xml'
- 7. In a different terminal run 'mvn -Premoteapp -pl fxui javafx:run'
+ 5. Start rest-server with 'mvn spring-boot:run -f rest/pom.xml'
+ 6. In a different terminal run tests to see that everything works with 'mvn verify'
+ 7. In that same terminal run 'mvn -Premoteapp -pl fxui javafx:run'
  8. Now the app should appear on your screen. Database (JSON) can be viewed in the web browser by going to http://localhost:8080/personal_finance/
