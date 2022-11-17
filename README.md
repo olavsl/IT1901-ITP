@@ -13,7 +13,7 @@ Open the project in GitPod: [![Gitpod Ready-to-Code](https://gitpod.stud.ntnu.no
 
  ***Developer installation***
  1. Clone project locally or open it in gitpod
- 2. Open folder as Maven project in your IDE and cd in to personal_fionance
+ 2. Open folder as Maven project in your IDE and cd in to personal_finance
  3. Install modules by running 'mvn install -DskipTests'
  4. Run 'mvn compile'
  5. Start rest-server with 'mvn spring-boot:run -f rest/pom.xml'
