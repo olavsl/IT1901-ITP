@@ -2,7 +2,6 @@ package personal_finance.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -31,10 +30,6 @@ public class LogInAuthenticatorTest {
 
         assertEquals(null, LogInAuthenticator.logIn("test", "wrongPassword"));
         assertNotEquals(correctUser, LogInAuthenticator.logIn("test", "wrongPassword"));
-        
-        assertThrows(IOException.class, () -> {
-            LogInAuthenticator.logIn("test", "test");
-        });
     }
     
     @AfterAll

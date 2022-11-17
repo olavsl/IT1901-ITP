@@ -8,13 +8,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import personal_finance.core.PersonalFinanceModel;
 import personal_finance.core.Transaction;
 import personal_finance.core.User;
-import personal_finance.json.PersonalFinancePersistence;
 
 public class UserCreaterTest {
 
@@ -44,18 +42,13 @@ public class UserCreaterTest {
         String newPassword = "newPassword";
         User user = new User(newUsername, PasswordHasher.hash(newPassword));
 
+        RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
+
         UserCreater.createUser(newUsername, newPassword);
 
-        PersonalFinancePersistence pfp = new PersonalFinancePersistence();
-        pfp.setStorageFile("test.json");
-        PersonalFinanceModel model = pfp.loadPersonalFinanceModel();
-        User loadedUser = new User();
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-        for (User u : model.getUsers()) {
-            if (u.getUsername().equals(newUsername) && u.getPassword().equals(PasswordHasher.hash(newPassword))) {
-                loadedUser = u;
-            }
-        }
+        User loadedUser = remoteModelAccess.getUser(newUsername);
 
         UserCreater.deleteUser(newUsername);
 
@@ -67,16 +60,16 @@ public class UserCreaterTest {
         String username = "username";
         String password = "password";
 
+        RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
+
         List<User> usersWithUserToBeDeleted = new ArrayList<>();
         User userToBeDeleted = new User(username, PasswordHasher.hash(password));
         usersWithUserToBeDeleted.add(userToBeDeleted);
         usersWithUserToBeDeleted.add(new User("test", PasswordHasher.hash("test")));
         PersonalFinanceModel modelWithUserToBeDeleted = new PersonalFinanceModel(usersWithUserToBeDeleted);
 
-        PersonalFinancePersistence pfp = new PersonalFinancePersistence();
-        pfp.setStorageFile("test.json");
         UserCreater.createUser(username, password);
-        PersonalFinanceModel loadedModel = pfp.loadPersonalFinanceModel();
+        PersonalFinanceModel loadedModel = remoteModelAccess.getPersonalFinanceModel();
 
         assertTrue(comparePersonalFinanceModels(modelWithUserToBeDeleted, loadedModel));
 
@@ -86,8 +79,7 @@ public class UserCreaterTest {
         listWithoutUserToBeDeleted.add(new User("test", PasswordHasher.hash("test")));
         PersonalFinanceModel modelWithoutUserToBeDeleted = new PersonalFinanceModel(listWithoutUserToBeDeleted);
 
-        PersonalFinanceModel loadedModel2 = pfp.loadPersonalFinanceModel();
-        UserCreater.deleteUser(username);
+        PersonalFinanceModel loadedModel2 = remoteModelAccess.getPersonalFinanceModel();
 
         assertTrue(comparePersonalFinanceModels(modelWithoutUserToBeDeleted, loadedModel2));
     }
@@ -146,15 +138,6 @@ public class UserCreaterTest {
         }
 
         return true;
-    }
-
-    @AfterAll
-    public static void clearTestFile() throws IOException {
-        PersonalFinancePersistence pfp = new PersonalFinancePersistence();
-        List<User> emptyList = new ArrayList<>();
-        PersonalFinanceModel model = new PersonalFinanceModel(emptyList);
-        pfp.setStorageFile("test.json");
-        pfp.savePersonalFinanceModel(model);
     }
 
 }

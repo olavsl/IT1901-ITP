@@ -55,6 +55,7 @@ public class UserCreater {
      * @throws IOException
      */
     public static void deleteUser(String username) throws IOException {
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
         remoteModelAccess.deleteUser(remoteModelAccess.getPersonalFinanceModel().getUser(username));
     }
 
