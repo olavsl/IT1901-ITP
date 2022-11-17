@@ -35,6 +35,8 @@ public class TransactionHandlerTest {
         Transaction addedTransaction = remoteModelAccess.getUser("username").getTransactions().get(0);
 
         assertTrue(compareTransactions(transaction, addedTransaction));
+
+        remoteModelAccess.deleteUser(user);
     }
 
     private boolean compareTransactions(Transaction t1, Transaction t2) {

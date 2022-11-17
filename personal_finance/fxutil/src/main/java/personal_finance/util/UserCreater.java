@@ -20,6 +20,7 @@ public class UserCreater {
      * @throws IOException
      */
     public static String validateNewUserCredentials(String username, String password, String confirmedPassword) throws IOException {
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
         User user = remoteModelAccess.getUser(username);
 
         if (user != null) {
