@@ -9,7 +9,7 @@ A personal accounting application with the main functionality to be able to add 
 The application will have a GUI for the users profile, transactions (money flowing in and out of ones account(s)), different accounts, loans and debt.
 
 **User stories**
-A wider description of the user stories can be found in the [userstories.md](/docs/userstories.md) file. <br />
+A wider description of the user stories can be found in the [userstories.md](../docs/user_stories.md) file. <br />
 
 * As a user I want to be able to create a new user account.
 * As a user I want to create a new transaction.

@@ -3,6 +3,8 @@
 **Implemented functionality for release 3**
  * Added more tests for everything to try to reach 100% coverage
  * Added the REST-API for the backend to the project (see [REST-API](../REST-API.md))
+ * You can now make a budget and assign categories to it, to better keep track of different kind of transactions
+ * You can sort and filter the overview table based on category, ammount and date
  * Continued to check the code quality with Checkstyle, Spotbugs
  * Continued to improve the tests using Jacoco
 
@@ -10,9 +12,11 @@
 
 **Implemented documentation for release 3**
  * Decisions made in [decisions.md](../decisions.md)
- * A sequence [diagram](../sequencediagram.png) made with plantuml
+ * A sequence [diagram](../Diagrams/sequencediagram.png) made with plantuml
+ * A sequence [diagram](../Diagrams/classdiagram.png) made with plantuml
  * Documentation for the REST-API in [REST-API](../REST-API.md)
- * A README.md for documentation in [docs](../docs/README.md)
+ * A README.md for documentation in [docs](../README.md) to serve as a overview over docs
+ * An overview of the user stories in [user_stories.md](../user_stories.md)
 
 
 

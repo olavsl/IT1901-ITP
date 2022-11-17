@@ -14,11 +14,11 @@ The group has let the following warnings remain:
 * [RequireEmptyLineBeforeBlockTagGroup] - checkstyle requires an “empty” line before @return and @param parameters, which it doesn’t seem to detect, even though it is contained in the code
 * [LineLength] - Some of our code lines extend over 100 lines - which is not a severe error
 * [VariableDeclarationUsageDistance] - Some function doesn’t use the declared variable before 3 lines into the function, which is a requirement by the checkstyle config.
-* Ideally we would have custom configurated checkstyle, but the standard google_checks gives a lot of valuable information an
+* Ideally we would have custom configurated checkstyle, but the standard google_checks gives a lot of valuable information anyways
 
 ## Spotbugs:
 
-* Through finding bugs with spotbugs, a lot of bugfixes has been made. Several of the bugs were unlogical and it led to the exclusions of quite a few classes. These were still unexcluded throughout the code being updated to find new bugs to fix.
+* Through finding bugs with spotbugs, a lot of bugfixes has been made. Several of the bugs were nonsense and it led to the exclusions of quite a few classes. These were still unexcluded throughout the code being updated to find new bugs to fix.
 * Spotbugs makes the build fail, so as per release 3 the remaining bugs will be excluded.
 
 ## Jacoco:

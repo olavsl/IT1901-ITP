@@ -3,7 +3,7 @@ Open the project in GitPod: [![Gitpod Ready-to-Code](https://gitpod.stud.ntnu.no
 # Personal Finance Application
 
  * For project description and use see [personal_finance/README.md](personal_finance/README.md)
- * Documentation for each release and other documentation is found in the [docs folder](/docs/)
+ * Documentation for each release and other documentation is found in the [docs folder](docs/README.md)
 
 
  ## Building and running
