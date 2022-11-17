@@ -30,36 +30,28 @@
       </TableView>
       <ButtonBar layoutX="50.0" layoutY="120.0" prefHeight="40.0" prefWidth="400.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
+          <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #285aa5;" text="Add" textFill="WHITE">
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #285aa5;" text="Add" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #158eff;" text="Budget" textFill="WHITE">
+            <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #158eff;" text="Budget" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
+            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
         </buttons>
       </ButtonBar>
-      <!-- <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
-        <buttons>
-          <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
-            <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
-            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
-        </buttons>
-      </ButtonBar> -->
       <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" textFill="#253568" />
       <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" textFill="#253568" />
       <Label layoutX="76.0" layoutY="294.0" text="Add new category" textFill="#253568">

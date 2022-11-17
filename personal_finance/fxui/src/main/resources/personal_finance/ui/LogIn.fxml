@@ -23,12 +23,12 @@
             <Font size="16.0" />
          </font>
       </PasswordField>
-      <Button layoutX="278.0" layoutY="447.0" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #285aa5;" text="LOG IN" textFill="WHITE">
+      <Button fx:id="logInBtn" layoutX="278.0" layoutY="447.0" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #285aa5;" text="LOG IN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
       <Label fx:id="wrongLogInFeedback" alignment="CENTER" layoutX="106.0" layoutY="615.0" prefHeight="18.0" prefWidth="304.0" textAlignment="CENTER" textFill="#285aa5" />
-      <Button layoutX="121.0" layoutY="447.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #ffffff;" text="Sign up" textFill="#285aa5">
+      <Button fx:id="signUpBtn" layoutX="121.0" layoutY="447.0" mnemonicParsing="false" onAction="#switchToCreateUser" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #ffffff;" text="Sign up" textFill="#285aa5">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>

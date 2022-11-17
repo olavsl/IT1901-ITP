@@ -28,12 +28,12 @@
             <Font size="16.0" />
          </font>
       </PasswordField>
-      <Button layoutX="199.0" layoutY="494.0" mnemonicParsing="false" onAction="#createUser" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #285aa5;" text="Create User" textFill="WHITE">
+      <Button fx:id="createBtn" layoutX="199.0" layoutY="494.0" mnemonicParsing="false" onAction="#createUser" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #285aa5;" text="Create User" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
       <Label fx:id="createUserFeedback" alignment="CENTER" layoutX="65.0" layoutY="615.0" prefHeight="45.0" prefWidth="381.0" textAlignment="CENTER" />
-      <Button layoutX="194.0" layoutY="546.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="11.0" prefWidth="124.0" style="-fx-background-color: #ffffff;" text="Go to LOG IN" textFill="#285aa5">
+      <Button fx:id="logInBtn" layoutX="194.0" layoutY="546.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="11.0" prefWidth="124.0" style="-fx-background-color: #ffffff;" text="Go to LOG IN" textFill="#285aa5">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font></Button>

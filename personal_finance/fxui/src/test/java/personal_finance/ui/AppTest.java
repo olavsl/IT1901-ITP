@@ -120,7 +120,7 @@ public class AppTest extends ApplicationTest {
         clickOn("#setBtn");
         assertTrue(userFeedback.getText().equals("Budget start date successfully set"));
         
-        clickOn("#budgetStartDate").write("11/1/2022");
+        clickOn("#budgetStartDate").write("1.11.2022");
         clickOn("#setBtn");
 
         assertTrue(userFeedback.getText().equals("Budget start date successfully changed"));

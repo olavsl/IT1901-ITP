@@ -24,22 +24,22 @@
       </Label>
       <ButtonBar layoutX="50.0" layoutY="120.0" prefHeight="40.0" prefWidth="400.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
+          <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #158eff;" text="Add" textFill="WHITE">
+            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #158eff;" text="Add" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #285aa5;" text="Budget" textFill="WHITE">
+            <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #285aa5;" text="Budget" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
+            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -72,7 +72,7 @@
          </font>
       </Label>
       <DatePicker fx:id="transactionDate" layoutX="151.0" layoutY="380.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
-      <Button layoutX="229.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #68D640;" text="+" textFill="WHITE">
+      <Button fx:id="saveBtn" layoutX="229.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #68D640;" text="+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
