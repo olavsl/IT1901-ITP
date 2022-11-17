@@ -4,6 +4,7 @@ Open the project in GitPod: [![Gitpod Ready-to-Code](https://gitpod.stud.ntnu.no
 
  * For project description and use see [personal_finance/README.md](personal_finance/README.md)
  * Documentation for each release and other documentation is found in the [docs folder](docs/README.md)
+ * For prepackaged releases see [releases](releases/README.md)
 
 
  ## Building and running

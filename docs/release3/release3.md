@@ -7,16 +7,18 @@
  * You can sort and filter the overview table based on category, ammount and date
  * Continued to check the code quality with Checkstyle, Spotbugs
  * Continued to improve the tests using Jacoco
+ * Prepackaged releases of the LocalAccess version of app for windows and linux (deb) see [releases](../../releases/README.md), and the posibility to package in genereal.
 
 
 
 **Implemented documentation for release 3**
  * Decisions made in [decisions.md](../decisions.md)
  * A sequence [diagram](../Diagrams/sequencediagram.png) made with plantuml
- * A sequence [diagram](../Diagrams/classdiagram.png) made with plantuml
- * Documentation for the REST-API in [REST-API](../REST-API.md)
+ * A bunch of class diagrams made with plantuml see [docs](../README.md)
+ * Documentation for the REST-API in [REST-API](../rest_service.md)
  * A README.md for documentation in [docs](../README.md) to serve as a overview over docs
  * An overview of the user stories in [user_stories.md](../user_stories.md)
+ * A description of prepackaged releases and the prosess see [releases](../../releases/README.md)
 
 
 

@@ -30,3 +30,8 @@ With a total coverage of: ______________________
 ## .mailmap:
 
 * Maps the various author’s email to the a single name. This is because we in the beginning of the project ended up using gitlab with different accounts.
+
+## Packaging of "shipable product":
+ * The group decided to include prepackaged installers for linux (deb) and windows 10 for anyone who would want a LocalAccess version of the application eventhough its been depricated, as on a functional basis its identical to master.
+ * Therefore jlink and jpackage, which was used for this, is only to be implemented in that seperate brach called LocalAccess
+ * See [releases](../../releases/README.md) for info on how to package yourself or to find the installers

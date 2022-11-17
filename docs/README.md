@@ -30,9 +30,13 @@
 
 * [Sequence diagram](/Diagrams/sequencediagram.png)
 
-* [Class diagram](/Diagrams/classdiagram.png)
+* [Class diagram for core](/Diagrams/classdiagram_core.png)
+* [Class diagram for json](/Diagrams/classdiagram_json.png)
+* [Class diagram for fxui](/Diagrams/classdiagram_fxui.png)
+* [Class diagram for fxutil](/Diagrams/classdiagram_fxutil.png)
+* [Class diagram for rest](/Diagrams/classdiagram_rest.png)
 
 ### REST-API
-* [REST-API](REST-API.md)
+* [REST-API](rest_service.md)
 
 <br>
