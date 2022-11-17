@@ -1,12 +1,11 @@
 package personal_finance.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -57,31 +56,18 @@ public class UserCreaterTest {
 
     @Test
     public void testDeleteUser() throws NoSuchAlgorithmException, IOException {
-        String username = "username";
-        String password = "password";
-
         RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
+        User user = new User("username", "password");
+        
+        remoteModelAccess.postUser(user);
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-        List<User> usersWithUserToBeDeleted = new ArrayList<>();
-        User userToBeDeleted = new User(username, PasswordHasher.hash(password));
-        usersWithUserToBeDeleted.add(userToBeDeleted);
-        usersWithUserToBeDeleted.add(new User("test", PasswordHasher.hash("test")));
-        PersonalFinanceModel modelWithUserToBeDeleted = new PersonalFinanceModel(usersWithUserToBeDeleted);
+        assertTrue(compareUsers(user, remoteModelAccess.getUser("username")));
 
-        UserCreater.createUser(username, password);
-        PersonalFinanceModel loadedModel = remoteModelAccess.getPersonalFinanceModel();
+        remoteModelAccess.deleteUser(user);
+        remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-        assertTrue(comparePersonalFinanceModels(modelWithUserToBeDeleted, loadedModel));
-
-        UserCreater.deleteUser(username);
-
-        List<User> listWithoutUserToBeDeleted = new ArrayList<>();
-        listWithoutUserToBeDeleted.add(new User("test", PasswordHasher.hash("test")));
-        PersonalFinanceModel modelWithoutUserToBeDeleted = new PersonalFinanceModel(listWithoutUserToBeDeleted);
-
-        PersonalFinanceModel loadedModel2 = remoteModelAccess.getPersonalFinanceModel();
-
-        assertTrue(comparePersonalFinanceModels(modelWithoutUserToBeDeleted, loadedModel2));
+        assertNull(remoteModelAccess.getUser("username"));
     }
 
     public boolean compareUsers(User a, User b) {
