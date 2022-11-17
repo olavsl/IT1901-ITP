@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.EnumSet;
 import java.util.Set;
 
@@ -35,10 +37,10 @@ public class PersonalFinancePersistence {
         USERS, TRANSACTIONS, BUDGET, CATEGORY
     }
 
-    public void setStorageFile(final String path) throws IOException {
-        String dir = System.getProperty("user.dir");
-        String finalPath = dir.substring(0, dir.length() - 5) + "/core/src/main/resources/personal_finance/json/" + path;
-        this.storageFile = new File(finalPath);
+    public void setStorageFile(final String saveFile) throws IOException {
+        Path path = Paths.get(System.getProperty("user.home"), saveFile);
+        this.storageFile = new File(path.toUri());
+        this.storageFile.createNewFile();       
     }
 
     public File getStorageFile() {
