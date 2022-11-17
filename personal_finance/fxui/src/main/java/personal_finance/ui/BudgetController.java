@@ -76,25 +76,29 @@ public class BudgetController extends SceneSwitcher {
 
         if (title.equals("")) {
             userFeedback.setText("Category must have a title!");
-            throw new IllegalArgumentException("Category must have a title!");
+            // throw new IllegalArgumentException("Category must have a title!");
+            return;
         }
 
         try {
             limit = Double.valueOf(categoryLimit.getText());
         } catch (Exception e) {
             userFeedback.setText("Limit can only be a decimal number!");
-            throw new IllegalArgumentException("Limit can only be a decimal number!");
+            // throw new IllegalArgumentException("Limit can only be a decimal number!");
+            return;
         }
 
         if (limit < 0) {
             userFeedback.setText("Limit must be a positive number!");
-            throw new IllegalArgumentException("Limit must be a positive number!");
+            // throw new IllegalArgumentException("Limit must be a positive number!");
+            return;
         }
 
         for (Category c : this.user.getBudget().getCategories()) {
             if (c.getTitle().equals(title)) {
                 userFeedback.setText("A category with that name already exists!");
-                throw new IllegalArgumentException("A category with that name already exists!");
+                // throw new IllegalArgumentException("A category with that name already exists!");
+                return;
             }
         }
 

@@ -39,10 +39,6 @@ public class Transaction {
         this.title = title;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
     public void setDate(LocalDate date) {
         this.date = date;
     }

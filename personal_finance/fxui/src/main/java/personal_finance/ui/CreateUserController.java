@@ -5,14 +5,15 @@ import java.security.NoSuchAlgorithmException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import personal_finance.util.UserCreater;
 
 public class CreateUserController extends SceneSwitcher {
 
     @FXML private TextField username;
-    @FXML private TextField password;
-    @FXML private TextField confirmedPassword;
+    @FXML private PasswordField password;
+    @FXML private PasswordField confirmedPassword;
     @FXML private Label createUserFeedback;
 
     @FXML
