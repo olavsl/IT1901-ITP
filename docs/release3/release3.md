@@ -3,7 +3,7 @@
 **Implemented functionality for release 3**
  * Added more tests for everything to try to reach 100% coverage
  * Added the REST-API for the backend to the project (see [REST-API](../REST-API.md))
- * Continued to chech the code quality with Chechkstyle, Spotbugs
+ * Continued to check the code quality with Checkstyle, Spotbugs
  * Continued to improve the tests using Jacoco
 
 
