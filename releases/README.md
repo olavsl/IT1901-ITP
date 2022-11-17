@@ -9,5 +9,4 @@
  * The installer for your OS will recide in personal_finance/fxui/target/dist/
 
 **Installers**
- * [Windows 10](file)
  * [Linux (deb)](personal-finance_1.0.0-1_amd64)
