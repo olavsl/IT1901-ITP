@@ -7,55 +7,81 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.AddTransactionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.AddTransactionController">
    <children>
-      <Label layoutX="107.0" layoutY="62.0" text="PERSONAL FINANCE">
+      <Label layoutX="153.0" layoutY="14.0" text="PERSONAL FINANCE" textFill="#285aa5">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
+      <Label layoutX="89.0" layoutY="62.0" text="Add Transactions" textFill="#253568">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="50.0" layoutY="120.0" prefHeight="40.0" prefWidth="400.0">
         <buttons>
-          <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
-            <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
-            <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
-            <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
+          <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #158eff;" text="Add" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #285aa5;" text="Budget" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
         </buttons>
       </ButtonBar>
-      <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" />
-      <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" />
-      <Label layoutX="77.0" layoutY="223.0" text="Add new transaction">
+      <Line endX="350.0" layoutX="125.0" layoutY="170.0" startX="-100.0" stroke="#285aa5" />
+      <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" textFill="#253568" />
+      <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" textFill="#253568" />
+      <Label layoutX="130.0" layoutY="198.0" text="Add new transaction" textFill="#253568">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="271.0" text="Title">
+      <Label layoutX="58.0" layoutY="268.0" text="Title" textAlignment="CENTER" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="transactionTitle" layoutX="150.0" layoutY="270.0" />
-      <Label layoutX="85.0" layoutY="314.0" text="Amount">
+      <TextField fx:id="transactionTitle" layoutX="150.0" layoutY="260.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Label layoutX="46.0" layoutY="328.0" text="Amount" textAlignment="CENTER" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="transactionAmount" layoutX="150.0" layoutY="310.0" />
-      <Label layoutX="106.0" layoutY="353.0" text="Date">
+      <TextField fx:id="transactionAmount" layoutX="151.0" layoutY="320.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Label layoutX="57.0" layoutY="388.0" text="Date" textAlignment="CENTER" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="transactionDate" layoutX="149.0" layoutY="350.0" />
-      <Label fx:id="userFeedback" layoutX="124.0" layoutY="534.0" prefHeight="29.0" prefWidth="253.0" />
-      <Label layoutX="79.0" layoutY="391.0" text="Category" textAlignment="RIGHT">
+      <DatePicker fx:id="transactionDate" layoutX="151.0" layoutY="380.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Button layoutX="229.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #68D640;" text="+" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label fx:id="userFeedback" layoutX="124.0" layoutY="625.0" prefHeight="29.0" prefWidth="253.0" textFill="#253568" />
+      <Label layoutX="43.0" layoutY="448.0" text="Category" textAlignment="CENTER" textFill="#253568">
+         <font>
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="btnChooseCategory" layoutX="149.0" layoutY="388.0" prefWidth="150.0" />
-      <Button fx:id="saveBtn" layoutX="148.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleAddTransaction" prefHeight="25.0" prefWidth="120.0" text="Save" />
+      <ChoiceBox fx:id="btnChooseCategory" layoutX="151.0" layoutY="440.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
    </children>
 </AnchorPane>

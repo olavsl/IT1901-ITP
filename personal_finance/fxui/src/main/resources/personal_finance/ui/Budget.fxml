@@ -10,64 +10,94 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.BudgetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personal_finance.ui.BudgetController">
    <children>
-      <Label layoutX="107.0" layoutY="62.0" text="PERSONAL FINANCE">
+      <Label layoutX="153.0" layoutY="14.0" text="PERSONAL FINANCE" textFill="#285aa5">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="454.0" text="Categories">
+      <Label layoutX="173.0" layoutY="62.0" text="Budget" textFill="#253568">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <TableView fx:id="categoryOverview" layoutX="77.0" layoutY="492.0" prefHeight="200.0" prefWidth="203.0">
+      <TableView fx:id="categoryOverview" layoutX="100.0" layoutY="519.0" prefHeight="200.0" prefWidth="300.0">
         <columns>
-          <TableColumn fx:id="categoryTitles" prefWidth="100.0" text="Title" />
-          <TableColumn fx:id="categoryLimits" prefWidth="100.0" text="Limit" />
+          <TableColumn fx:id="categoryTitles" prefWidth="150.0" text="Title" />
+          <TableColumn fx:id="categoryLimits" prefWidth="150.0" text="Limit" />
         </columns>
       </TableView>
-      <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar layoutX="50.0" layoutY="120.0" prefHeight="40.0" prefWidth="400.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="25.0" style="-fx-background-color: #285aa5;" text="Overview" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToAddTransaction" style="-fx-background-color: #285aa5;" text="Add" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToBudget" style="-fx-background-color: #158eff;" text="Budget" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #285aa5;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+        </buttons>
+      </ButtonBar>
+      <!-- <ButtonBar layoutX="55.0" layoutY="152.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#switchToOverview" text="Overview" />
             <Button fx:id="addBtn" mnemonicParsing="false" onAction="#switchToAddTransaction" text="Add" />
             <Button fx:id="budgetBtn" mnemonicParsing="false" onAction="#switchToBudget" text="Budget" />
             <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="25.0" prefWidth="120.0" text="Log out" />
         </buttons>
-      </ButtonBar>
-      <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" />
-      <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" />
-      <Label layoutX="76.0" layoutY="276.0" text="Add new category">
+      </ButtonBar> -->
+      <Label layoutX="55.0" layoutY="736.0" text="Logged in as:" textFill="#253568" />
+      <Label fx:id="usernameDisplay" layoutX="148.0" layoutY="736.0" textFill="#253568" />
+      <Label layoutX="76.0" layoutY="294.0" text="Add new category" textFill="#253568">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="105.0" layoutY="324.0" text="Title">
+      <Label layoutX="93.0" layoutY="348.0" text="Title" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="categoryTitle" layoutX="148.0" layoutY="321.0" />
-      <Label layoutX="103.0" layoutY="367.0" text="Limit">
+      <TextField fx:id="categoryTitle" layoutX="150.0" layoutY="340.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Label layoutX="91.0" layoutY="408.0" text="Limit" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="categoryLimit" layoutX="148.0" layoutY="364.0" />
-      <Button fx:id="saveBtn" layoutX="147.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleAddCategory" prefHeight="25.0" prefWidth="120.0" text="Save" />
-      <Label layoutX="76.0" layoutY="204.0" text="Budget start date">
+      <TextField fx:id="categoryLimit" layoutX="150.0" layoutY="400.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Button fx:id="saveBtn" layoutX="310.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleAddCategory" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #68D640;" text="+" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="76.0" layoutY="204.0" text="Budget start date" textFill="#253568">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="105.0" layoutY="244.0" text="Date">
+      <Label layoutX="92.0" layoutY="248.0" text="Date" textFill="#253568">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <DatePicker fx:id="budgetStartDate" layoutX="148.0" layoutY="241.0" />
-      <Button fx:id="setBtn" layoutX="352.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleSetBudget" prefHeight="26.0" prefWidth="40.0" text="Set" />
-      <Label fx:id="userFeedback" layoutX="297.0" layoutY="492.0" prefHeight="54.0" prefWidth="189.0" wrapText="true" />
+      <DatePicker fx:id="budgetStartDate" layoutX="150.0" layoutY="240.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #285AA5; -fx-border-radius: 10px;" />
+      <Button fx:id="setBtn" layoutX="300.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleSetBudget" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #68D640;" text="Set" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Label fx:id="userFeedback" layoutX="99.0" layoutY="455.0" prefHeight="54.0" prefWidth="200.0" textFill="#253568" wrapText="true" />
    </children>
 </AnchorPane>
