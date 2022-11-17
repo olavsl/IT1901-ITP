@@ -23,9 +23,9 @@ The group has let the following warnings remain:
 
 ## Jacoco:
 
-With a total coverage of: ______________________
+With a total coverage of: about 80%
 
-* Getter- and Setter-functions have been downprioritized in making tests for, as these are simple and safe in practice
+* json folder in core module reports 0% coverage but most of it is infact tested through tests in fxutil module, but just not in the place jacoco is looking
 
 ## .mailmap:
 
