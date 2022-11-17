@@ -26,7 +26,7 @@ public class LogInController extends SceneSwitcher {
         try {
             user = LogInAuthenticator.logIn(username, password);
             switchToOverview(event, user);
-        } catch (IOException e) {
+        } catch (Exception e) {
             wrongLogInFeedback.setText("No user with these credentials");
             return;
         }
