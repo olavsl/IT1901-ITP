@@ -138,7 +138,7 @@ public class AppTest extends ApplicationTest {
 
     @AfterEach
     public void cleanUp() throws NoSuchAlgorithmException, IOException {
-        UserCreater.deleteUser("test", "users.json");
+        UserCreater.deleteUser("test");
     }
     private void logIn() {
         //logs in with the user "test"
