@@ -1,7 +1,7 @@
 @startuml
 
 class PersonalFinanceModule
-PersonalFinanceModule : -static final String NAME
+PersonalFinanceModule : -{static} final String NAME
 PersonalFinanceModule : +PersonalFinanceModule(Set<PersonalFinanceModelParts>)
 PersonalFinanceModule : +PersonalFinanceModule()
 
