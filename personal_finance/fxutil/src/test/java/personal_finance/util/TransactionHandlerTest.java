@@ -12,47 +12,47 @@ import personal_finance.core.Transaction;
 import personal_finance.core.User;
 
 public class TransactionHandlerTest {
-    
-    private RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-    @Test
-    public void testHandleAddTransaction() throws IOException {
-        User user = new User("username", "password");
-        remoteModelAccess.postUser(user);
+  private RemotePersonalFinanceModelAccess remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-        String title = "title";
-        double value = 0.0;
-        LocalDate date = LocalDate.now();
-        Category category = new Category("Other", 0);
+  @Test
+  public void testHandleAddTransaction() throws IOException {
+    User user = new User("username", "password");
+    remoteModelAccess.postUser(user);
 
-        Transaction transaction = new Transaction(title, value, date);
-        transaction.setCategory(category);
+    String title = "title";
+    double value = 0.0;
+    LocalDate date = LocalDate.now();
+    Category category = new Category("Other", 0);
 
-        TransactionHandler.handleAddTransaction(title, value, null, null, user);
-    
-        remoteModelAccess = new RemotePersonalFinanceModelAccess();
+    Transaction transaction = new Transaction(title, value, date);
+    transaction.setCategory(category);
 
-        Transaction addedTransaction = remoteModelAccess.getUser("username").getTransactions().get(0);
+    TransactionHandler.handleAddTransaction(title, value, null, null, user);
 
-        assertTrue(compareTransactions(transaction, addedTransaction));
+    remoteModelAccess = new RemotePersonalFinanceModelAccess();
 
-        remoteModelAccess.deleteUser(user);
+    Transaction addedTransaction = remoteModelAccess.getUser("username").getTransactions().get(0);
+
+    assertTrue(compareTransactions(transaction, addedTransaction));
+
+    remoteModelAccess.deleteUser(user);
+  }
+
+  private boolean compareTransactions(Transaction t1, Transaction t2) {
+    if (!t1.getTitle().equals(t2.getTitle())) {
+      return false;
     }
 
-    private boolean compareTransactions(Transaction t1, Transaction t2) {
-        if (!t1.getTitle().equals(t2.getTitle())) {
-            return false;
-        }
-
-        if (t1.getValue() != t2.getValue()) {
-            return false;
-        }
-
-        if (!t1.getDate().equals(t2.getDate())) {
-            return false;
-        }
-
-        return true;
+    if (t1.getValue() != t2.getValue()) {
+      return false;
     }
+
+    if (!t1.getDate().equals(t2.getDate())) {
+      return false;
+    }
+
+    return true;
+  }
 
 }

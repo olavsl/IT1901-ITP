@@ -20,73 +20,73 @@ import personal_finance.core.User;
 @RequestMapping(PersonalFinanceModelController.PERSONALFINANCE_MODEL_SERVICE_PATH)
 public class PersonalFinanceModelController {
 
-    public static final String PERSONALFINANCE_MODEL_SERVICE_PATH = "personal_finance";
+  public static final String PERSONALFINANCE_MODEL_SERVICE_PATH = "personal_finance";
 
-    @Autowired
-    private PersonalFinanceModelService modelService;
-   
-    @GetMapping
-    public PersonalFinanceModel getPersonalFinanceModel() {
-        return modelService.getPersonalFinanceModel();
-    }
+  @Autowired
+  private PersonalFinanceModelService modelService;
 
-    private void savePersonalFinanceModel() {
-        modelService.savePersonalFinanceModel();
-    }
+  @GetMapping
+  public PersonalFinanceModel getPersonalFinanceModel() {
+    return modelService.getPersonalFinanceModel();
+  }
 
-    /**
-     * Checks if a user with the parsed username exists.
-     * 
-     * @param user
-     * @param username
-     * @throws IllegalArgumentException
-     */
-    private void checkIfUserExists(User user, String username) {
-        if (user == null) {
-            throw new IllegalArgumentException("There exists no user with the name \"" + username + "\"!");
-        }
-    }
+  private void savePersonalFinanceModel() {
+    modelService.savePersonalFinanceModel();
+  }
 
-    /**
-     * Gets the user corresponding to the parsed username.
-     * 
-     * @param username
-     * @return the corresponding user
-     */
-    @GetMapping(path = "/users/{user}")
-    public User getUser(@PathVariable("user") String username) {
-        User user = getPersonalFinanceModel().getUser(username);
-        checkIfUserExists(user, username);
-        return user;
+  /**
+   * Checks if a user with the parsed username exists.
+   * 
+   * @param user
+   * @param username
+   * @throws IllegalArgumentException
+   */
+  private void checkIfUserExists(User user, String username) {
+    if (user == null) {
+      throw new IllegalArgumentException("There exists no user with the name \"" + username + "\"!");
     }
+  }
 
-    /**
-     * Checks if a user with parsed username already exists. If so,
-     * then the user is swapped out (updated) with the "new" user object.
-     * 
-     * @param username
-     * @param user
-     * @return true if a new user was added
-     */
-    @PutMapping(path = "/users/{user}")
-    public boolean putUser(@PathVariable("user") String username, @RequestBody User user) {
-        boolean updatedUser = getPersonalFinanceModel().putUser(user);
-        savePersonalFinanceModel();
-        return updatedUser;
-    }
+  /**
+   * Gets the user corresponding to the parsed username.
+   * 
+   * @param username
+   * @return the corresponding user
+   */
+  @GetMapping(path = "/users/{user}")
+  public User getUser(@PathVariable("user") String username) {
+    User user = getPersonalFinanceModel().getUser(username);
+    checkIfUserExists(user, username);
+    return user;
+  }
 
-    @PostMapping(path = "/users/{user}")
-    public boolean createUser(@PathVariable("user") String username, @RequestBody User user) {
-        boolean createdUser = getPersonalFinanceModel().addUser(user);
-        savePersonalFinanceModel();
-        return createdUser;
-    }
+  /**
+   * Checks if a user with parsed username already exists. If so,
+   * then the user is swapped out (updated) with the "new" user object.
+   * 
+   * @param username
+   * @param user
+   * @return true if a new user was added
+   */
+  @PutMapping(path = "/users/{user}")
+  public boolean putUser(@PathVariable("user") String username, @RequestBody User user) {
+    boolean updatedUser = getPersonalFinanceModel().putUser(user);
+    savePersonalFinanceModel();
+    return updatedUser;
+  }
 
-    @DeleteMapping(path = "/users/{user}")
-    public boolean deleteUser(@PathVariable("user") String username) {
-        boolean deletedUser = getPersonalFinanceModel().deleteUser(username);
-        savePersonalFinanceModel();
-        return deletedUser;
-    }
+  @PostMapping(path = "/users/{user}")
+  public boolean createUser(@PathVariable("user") String username, @RequestBody User user) {
+    boolean createdUser = getPersonalFinanceModel().addUser(user);
+    savePersonalFinanceModel();
+    return createdUser;
+  }
+
+  @DeleteMapping(path = "/users/{user}")
+  public boolean deleteUser(@PathVariable("user") String username) {
+    boolean deletedUser = getPersonalFinanceModel().deleteUser(username);
+    savePersonalFinanceModel();
+    return deletedUser;
+  }
 
 }

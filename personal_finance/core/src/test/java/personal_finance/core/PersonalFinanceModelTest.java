@@ -12,110 +12,110 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class PersonalFinanceModelTest {
-    
-    private PersonalFinanceModel pfm;
 
-    @Test
-    public void testContainsUser() {
-        pfm = new PersonalFinanceModel(new ArrayList<>());
-        User user = new User("username", "password");
-        pfm.addUser(user);
+  private PersonalFinanceModel pfm;
 
-        assertTrue(pfm.containsUser("username"));
-        assertFalse(pfm.containsUser("nonExistingUser"));
-    }
+  @Test
+  public void testContainsUser() {
+    pfm = new PersonalFinanceModel(new ArrayList<>());
+    User user = new User("username", "password");
+    pfm.addUser(user);
 
-    @Test
-    public void testGetUsers() {
-        pfm = new PersonalFinanceModel(null);
+    assertTrue(pfm.containsUser("username"));
+    assertFalse(pfm.containsUser("nonExistingUser"));
+  }
 
-        assertEquals(null, pfm.getUsers());
+  @Test
+  public void testGetUsers() {
+    pfm = new PersonalFinanceModel(null);
 
-        List<User> users = new ArrayList<>();
-        User user = new User("user", "user");
-        users.add(user);
-        pfm = new PersonalFinanceModel(users);
+    assertEquals(null, pfm.getUsers());
 
-        assertEquals(users, pfm.getUsers());
-    }
+    List<User> users = new ArrayList<>();
+    User user = new User("user", "user");
+    users.add(user);
+    pfm = new PersonalFinanceModel(users);
 
-    @Test
-    public void testAddUser() {
-        pfm = new PersonalFinanceModel(new ArrayList<>());
-        User user1 = new User("test1", "test1");
-        
-        boolean added = pfm.addUser(user1);
+    assertEquals(users, pfm.getUsers());
+  }
 
-        assertTrue(added);
-        assertEquals(user1, pfm.getUser("test1"));
+  @Test
+  public void testAddUser() {
+    pfm = new PersonalFinanceModel(new ArrayList<>());
+    User user1 = new User("test1", "test1");
 
-        User user2 = new User("test2", "test2");
-        pfm.addUser(user2);
+    boolean added = pfm.addUser(user1);
 
-        assertEquals(user2, pfm.getUser("test2"));
-        assertNotEquals(user1, pfm.getUser("test2"));
-        
-        added = pfm.addUser(user1);
-        
-        assertFalse(added);
-    }
+    assertTrue(added);
+    assertEquals(user1, pfm.getUser("test1"));
 
-    @Test
-    public void testGetUser() {
-        pfm = new PersonalFinanceModel(new ArrayList<>());
-        User user = new User("username", "password");
-        pfm.addUser(user);
+    User user2 = new User("test2", "test2");
+    pfm.addUser(user2);
 
-        User gottenUser = pfm.getUser("username");
+    assertEquals(user2, pfm.getUser("test2"));
+    assertNotEquals(user1, pfm.getUser("test2"));
 
-        assertEquals(user, gottenUser);
+    added = pfm.addUser(user1);
 
-        User nullUser = pfm.getUser("nonExistingUser");
+    assertFalse(added);
+  }
 
-        assertNull(nullUser);
-    }
+  @Test
+  public void testGetUser() {
+    pfm = new PersonalFinanceModel(new ArrayList<>());
+    User user = new User("username", "password");
+    pfm.addUser(user);
 
-    @Test
-    public void testPutUser() {
-        pfm = new PersonalFinanceModel(new ArrayList<>());
-        User user = new User("username", "password");
-        pfm.addUser(user);
+    User gottenUser = pfm.getUser("username");
 
-        User addedUser = pfm.getUser("username");
+    assertEquals(user, gottenUser);
 
-        assertEquals(user, addedUser);
+    User nullUser = pfm.getUser("nonExistingUser");
 
-        user.addTransaction(new Transaction("test", 0));
-        boolean put = pfm.putUser(user);
+    assertNull(nullUser);
+  }
 
-        assertTrue(put);
+  @Test
+  public void testPutUser() {
+    pfm = new PersonalFinanceModel(new ArrayList<>());
+    User user = new User("username", "password");
+    pfm.addUser(user);
 
-        User putUser = pfm.getUser("username");
+    User addedUser = pfm.getUser("username");
 
-        assertEquals(user, putUser);
+    assertEquals(user, addedUser);
 
-        User userNotInDatabase = new User("username2", "password");
-        boolean notPut = pfm.putUser(userNotInDatabase);
+    user.addTransaction(new Transaction("test", 0));
+    boolean put = pfm.putUser(user);
 
-        assertFalse(notPut);
-    }
+    assertTrue(put);
 
-    @Test
-    public void testDeleteUser() {
-        pfm = new PersonalFinanceModel(new ArrayList<>());
-        User user = new User("username", "password");
-        pfm.addUser(user);
+    User putUser = pfm.getUser("username");
 
-        assertTrue(pfm.containsUser("username"));
+    assertEquals(user, putUser);
 
-        boolean deleted = pfm.deleteUser("username");
+    User userNotInDatabase = new User("username2", "password");
+    boolean notPut = pfm.putUser(userNotInDatabase);
 
-        assertTrue(deleted);
-        assertFalse(pfm.containsUser("username"));
+    assertFalse(notPut);
+  }
 
-        boolean notDeleted = pfm.deleteUser("nonExistingUser");
+  @Test
+  public void testDeleteUser() {
+    pfm = new PersonalFinanceModel(new ArrayList<>());
+    User user = new User("username", "password");
+    pfm.addUser(user);
 
-        assertFalse(notDeleted);
-    }
+    assertTrue(pfm.containsUser("username"));
+
+    boolean deleted = pfm.deleteUser("username");
+
+    assertTrue(deleted);
+    assertFalse(pfm.containsUser("username"));
+
+    boolean notDeleted = pfm.deleteUser("nonExistingUser");
+
+    assertFalse(notDeleted);
+  }
 
 }

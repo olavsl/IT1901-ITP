@@ -7,7 +7,8 @@
 
 ## Checkstyle:
 
-The group has let the following warnings remain:
+* Checkstyle (https://checkstyle.sourceforge.io/) - Run with mvn checkstyle:checkstyle
+* The group has let the following warnings remain:
 
 * [MissingJavadocMethod] - Javadoc wants each parameter to be followed by documentation, but we do not deem this necessary in parameters such as username and password
 * [PackageName] - Our package consists of a “_”, which is not according to the checkstyle practice. We won’t change it for now, but keep in mind for coming projects
@@ -15,16 +16,22 @@ The group has let the following warnings remain:
 * [LineLength] - Some of our code lines extend over 100 lines - which is not a severe error
 * [VariableDeclarationUsageDistance] - Some function doesn’t use the declared variable before 3 lines into the function, which is a requirement by the checkstyle config.
 * Ideally we would have custom configurated checkstyle, but the standard google_checks gives a lot of valuable information anyways
+* [CustomImportOrder] - The order of imports and a space between the different imports give a warning - this is a mild issue
 
 ## Spotbugs:
+
+* Spotbugs (https://spotbugs.github.io/) 
+* Run with mvn spotbugs:check
 
 * Through finding bugs with spotbugs, a lot of bugfixes has been made. Several of the bugs were nonsense and it led to the exclusions of quite a few classes. These were still unexcluded throughout the code being updated to find new bugs to fix.
 * Spotbugs makes the build fail, so as per release 3 the remaining bugs will be excluded.
 
 ## Jacoco:
 
-With a total coverage of: about 80%
+* Jacoco (https://www.eclemma.org/jacoco/trunk/doc/maven.html) Runs automatically, get report with mvn jacoco:report
+* With a total coverage of: about 80%
 
+        
 * json folder in core module reports 0% coverage but most of it is infact tested through tests in fxutil module, but just not in the place jacoco is looking
 
 ## .mailmap:

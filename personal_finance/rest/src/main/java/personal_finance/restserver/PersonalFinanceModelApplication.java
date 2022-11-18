@@ -13,14 +13,14 @@ import personal_finance.json.PersonalFinancePersistence.PersonalFinanceModelPart
  */
 @SpringBootApplication
 public class PersonalFinanceModelApplication {
-    
-    @Bean
-    public Module objectMapperModule() {
-        return PersonalFinancePersistence.createJacksonModule(EnumSet.of(PersonalFinanceModelParts.USERS));
-    }
 
-    public static void main(String[] args) {
-        SpringApplication.run(PersonalFinanceModelApplication.class, args);
-    }
+  @Bean
+  public Module objectMapperModule() {
+    return PersonalFinancePersistence.createJacksonModule(EnumSet.of(PersonalFinanceModelParts.USERS));
+  }
+
+  public static void main(String[] args) {
+    SpringApplication.run(PersonalFinanceModelApplication.class, args);
+  }
 
 }

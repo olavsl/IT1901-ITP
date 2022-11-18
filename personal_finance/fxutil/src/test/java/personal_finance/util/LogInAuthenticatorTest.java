@@ -14,26 +14,26 @@ import personal_finance.core.User;
 
 public class LogInAuthenticatorTest {
 
-    @BeforeAll
-    public static void setUp() throws NoSuchAlgorithmException, IOException {
-        UserCreater.createUser("test", "test");
-    }
+  @BeforeAll
+  public static void setUp() throws NoSuchAlgorithmException, IOException {
+    UserCreater.createUser("test", "test");
+  }
 
-    @Test
-    public void testLogIn() throws NoSuchAlgorithmException, IOException {
-        User correctUser = new User("test", PasswordHasher.hash("test"));
-        User loggedInUser = LogInAuthenticator.logIn("test", "test");
-        
-        assertEquals(correctUser.getUsername(), loggedInUser.getUsername());
-        assertEquals(correctUser.getPassword(), loggedInUser.getPassword());
-        assertEquals(correctUser.getTransactions(), loggedInUser.getTransactions());
+  @Test
+  public void testLogIn() throws NoSuchAlgorithmException, IOException {
+    User correctUser = new User("test", PasswordHasher.hash("test"));
+    User loggedInUser = LogInAuthenticator.logIn("test", "test");
 
-        assertEquals(null, LogInAuthenticator.logIn("test", "wrongPassword"));
-        assertNotEquals(correctUser, LogInAuthenticator.logIn("test", "wrongPassword"));
-    }
-    
-    @AfterAll
-    public static void cleanUp() throws NoSuchAlgorithmException, IOException {
-        UserCreater.deleteUser("test");
-    }
+    assertEquals(correctUser.getUsername(), loggedInUser.getUsername());
+    assertEquals(correctUser.getPassword(), loggedInUser.getPassword());
+    assertEquals(correctUser.getTransactions(), loggedInUser.getTransactions());
+
+    assertEquals(null, LogInAuthenticator.logIn("test", "wrongPassword"));
+    assertNotEquals(correctUser, LogInAuthenticator.logIn("test", "wrongPassword"));
+  }
+
+  @AfterAll
+  public static void cleanUp() throws NoSuchAlgorithmException, IOException {
+    UserCreater.deleteUser("test");
+  }
 }
